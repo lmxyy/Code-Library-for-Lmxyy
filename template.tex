@@ -1,0 +1,184 @@
+
+%% \documentclass[a4paper]{article}
+%% %%\documentclass[11pt]{article}
+%% \usepackage{graphicx}
+%% \usepackage{longtable}
+%% \usepackage{latexsym}
+%% \usepackage{multirow}
+%% \usepackage{amssymb}
+%% \usepackage{xeCJK}
+%% \usepackage{tabularx}
+%% \usepackage{algorithm}
+%% \usepackage{algorithmic}
+%% \usepackage{supertabular}
+%% \usepackage{multirow}
+%% \usepackage{indentfirst}
+%% \usepackage{xcolor}
+%% \usepackage{listings}
+%% \usepackage{courier}
+%% \usepackage{geometry}
+%% \usepackage{fancyhdr}
+%% \usepackage{fancyvrb}
+%% \usepackage{fancybox} 
+%% \usepackage{amsmath,amsfonts,amssymb,graphicx}
+%% \usepackage{subfigure} 
+%% \usepackage{bm}
+%% \usepackage{multicol}
+%% \usepackage{abstract}
+%% \usepackage{mathrsfs}
+%% \usepackage[cache=false]{minted}
+%% \newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
+%% \setlength{\parindent}{2em}
+%% \tolerance=1000
+%% \lstset{language=C++}%这条命令可以让LaTeX排版时将C++键字突出显示
+%% \lstset{breaklines}%这条命令可以让LaTeX自动将长的代码行换行排版
+%% \lstset{extendedchars=false}%这一条命令可以解决代码跨页时，章节\题，页眉等汉字不显示的问题
+%% \lstset{
+%%          basicstyle=\scriptsize\ttfamily{}, % Standardschrift
+%%          numbers=left,               % Ort der Zeilennummern
+%%          numberstyle=\tiny,          % Stil der Zeilennummern
+%%          %stepnumber=5,               % Abstand zwischen den Zeilennummern
+%%          numbersep=10pt,              % Abstand der Nummern zum Text
+%%          tabsize=4,                  % Groesse von Tabs
+%%          %extendedchars=true,         %
+%%          breaklines=true,            % Zeilen werden Umgebrochen
+%%          keywordstyle=\color{red},
+%%          stringstyle=\color{white}\ttfamily, % Farbe der String
+%%          showspaces=false,           % Leerzeichen anzeigen ?
+%%          showtabs=false,             % Tabs anzeigen ?
+%%          xleftmargin=17pt,
+%%          framexleftmargin=17pt,
+%%          framexrightmargin=5pt,
+%%          framexbottommargin=0pt,
+%%          backgroundcolor=\color{lightgray},
+%%          showstringspaces=false      % Leerzeichen in Strings anzeigen ?
+%% }          
+%% \providecommand{\alert}[1]{\textbf{#1}}
+           
+%% %代码高亮  
+%% \geometry{margin=1in}
+           
+%% %字体设置  
+%% %\setmainfont{PingFangSC-Light}
+%% %\setCJKmonofont{PingFangSC-Light}
+%% %\setCJKmainfont[BoldFont={PingFangSC-Regular}]{PingFangSC-Light}
+          
+\documentclass[a4paper]{article} 
+\usepackage{bm}
+\usepackage{cmap}
+\usepackage{ctex}
+\usepackage{cite}
+\usepackage{color}
+\usepackage{float}
+\usepackage{xeCJK}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{enumerate}
+\usepackage{indentfirst}
+\usepackage[cache=false]{minted}
+
+%代码高亮
+\geometry{margin=1in}
+
+%字体设置
+%\setmainfont{PingFangSC-Light}
+%\setCJKmonofont{PingFangSC-Light}
+%\setCJKmainfont[BoldFont={PingFangSC-Regular}]{PingFangSC-Light}
+
+
+\newcommand{\cppcode}[1]{
+    \inputminted[mathescape,
+    			tabsize=4
+    			]{cpp}{source/#1}
+}
+
+\newcommand{\javacode}[1]{
+    \inputminted[mathescape,
+    			tabsize=4
+    			]{java}{source/#1}
+}
+        
+\title{Code Library For lmxyy}
+\author{lmxyy}
+\date{\today}
+\begin{document}
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+\section{计算几何}
+	\subsection{半平面交}
+		\cppcode{计算几何/半平面交.cpp}
+
+	\subsection{常用公式}
+		\cppcode{计算几何/常用公式.cpp}
+
+	\subsection{凸包}
+		\cppcode{计算几何/凸包.cpp}
+
+	\subsection{旋转卡壳}
+		\cppcode{计算几何/旋转卡壳.cpp}
+\section{数据结构}
+	\subsection{KDtree}
+		\cppcode{数据结构/KDtree.cpp}
+	\subsection{lct}
+		\cppcode{数据结构/lct.cpp}
+
+	\subsection{splay}
+		\cppcode{数据结构/splay.cpp}
+
+	\subsection{树链剖分}
+		\cppcode{数据结构/树链剖分.cpp}
+
+	\subsection{主席树}
+		\cppcode{数据结构/主席树.cpp}
+	\subsection{左偏树}
+		\cppcode{数据结构/左偏树.cpp}
+\section{数论算法}
+	\subsection{bsgs}
+		\cppcode{数论算法/bsgs.cpp}
+	\subsection{NTT}
+		\cppcode{数论算法/NTT.cpp}
+	\subsection{pollard rho}
+		\cppcode{数论算法/pollard rho.cpp}
+	\subsection{扩展欧几里德}
+		\cppcode{数论算法/扩展欧几里德.cpp}
+	\subsection{线筛}
+		\cppcode{数论算法/线筛.cpp}
+\section{数值算法}
+	\subsection{fft}
+		\cppcode{数值算法/fft.cpp}
+\section{图论算法}
+	\subsection{dinic}
+		\cppcode{图论算法/dinic.cpp}
+	\subsection{Hungry}
+		\cppcode{图论算法/Hungry.cpp}
+	\subsection{isap}
+		\cppcode{图论算法/isap.cpp}
+	\subsection{tarjan}
+		\cppcode{图论算法/tarjan.cpp}
+	\subsection{zkw}
+		\cppcode{图论算法/zkw.cpp}
+	\subsection{树分治}
+		\cppcode{图论算法/树分治.cpp}
+	\subsection{朱刘算法}
+		\cppcode{图论算法/朱刘算法.cpp}
+	\subsection{最小费用最大流spfa}
+		\cppcode{图论算法/最小费用最大流spfa.cpp}
+\section{字符串}
+	\subsection{ac自动机}
+		\cppcode{字符串/ac自动机.cpp}
+	\subsection{manacher}
+		\cppcode{字符串/manacher.cpp}
+	\subsection{后缀数组}
+		\cppcode{字符串/后缀数组.cpp}
+	\subsection{后缀自动机}
+		\cppcode{字符串/后缀自动机.cpp}
+	\subsection{回文自动机}
+		\cppcode{字符串/回文自动机.cpp}
+
+\end{document}
