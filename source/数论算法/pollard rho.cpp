@@ -1,3 +1,5 @@
+const int prime[] = {0,2,3,5,7,11,13,17,19,23,29,31};
+
 inline ll mul(ll a,ll b,ll p) { return (a*b-((ll)((ld)a/p*b+1e-3)*p)+p)%p; }
 
 inline bool check(ll m)
@@ -25,12 +27,12 @@ inline void rho(ll m)
 	if (check(m)) { fac[++nn] = m; return; }
 	while (true)
 	{
-		ll X = (ll)rand()*rand()%(m-1)+1; Y = X;
+		ll X = (ll)rand()*rand()%(m-1)+1,Y = X;
 		ll c = (ll)rand()*rand()%(m-1)+1; int i,j;
 		for (i = j = 2;;++i)
 		{
 			X = (mul(X,X,m)+c) % m;
-			ll d = gcd(abs(X-Y),m);
+			ll d = __gcd(abs(X-Y),m);
 			if (1 < d&&d < m) { rho(d),rho(m/d); return; }
 			if (X == Y) break; if (i == j) Y = X,j <<= 1;
 		}
