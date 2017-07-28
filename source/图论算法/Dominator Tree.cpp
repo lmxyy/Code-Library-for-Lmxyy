@@ -1,11 +1,4 @@
-#include<algorithm>
-#include<cstring>
-#include<iostream>
-#include<cstdio>
-#include<cstdlib>
-using namespace std;
-
-const int maxn = 100010;
+//建出来的树点的编号i在原图中是redfn[i]
 int N,M,Ts,cnt,side[maxn],nxt[maxn],toit[maxn],dfn[maxn],redfn[maxn],idom[maxn],best[maxn],semi[maxn];
 int ans[maxn],anc[maxn],fa[maxn],child[maxn],size[maxn]; vector <int> prod[maxn],bucket[maxn],son[maxn];
 
@@ -104,26 +97,4 @@ inline void lengauer_tarjan()
 		if (fa[i] == -1) continue;
 		son[idom[i]].push_back(i);
 	}
-}
-
-inline void get_ans(int now)
-{
-	ans[redfn[now]] += redfn[now];
-	for (auto x:son[now])
-		ans[redfn[x]] += ans[redfn[now]],get_ans(x);
-}	
-
-int main()
-{
-	//freopen("I.in","r",stdin);
-	while (scanf("%d %d",&N,&M) != EOF)
-	{
-		init();
-		for (int i = 1,a,b;i <= M;++i)
-			a = gi(),b = gi(),add(a,b);
-		lengauer_tarjan(); get_ans(1);
-		for (int i = 1;i <= N;++i)
-			printf("%d%c",ans[i]," \n"[i == N]);
-	}
-	return 0;
 }
