@@ -104,8 +104,8 @@ struct Node
 };
 struct Circle
 {
-	Node C; double r; int sgn; //sgn代表每个圆的权值
-	inline Circle(const Node &_C = Node(),double _r = 0,int _sgn = 1):C(_C),r(_r),sgn(_sgn) {} 
+	Node C; double r; int sgn;
+	inline Circle(const Node &_C = Node(),double _r = 0,int _sgn = 1):C(_C),r(_r),sgn(_sgn) {} // sgn代表该圆的权值，默认1 
 	friend inline bool operator==(const Circle &a,const Circle &b)
 	{
 		if (dcmp(a.r-b.r)) return false;
@@ -157,7 +157,7 @@ inline void solve()
 		for (int j = 1;j <= M;++j)
 			if (j != i&&intersect(cir[i],cir[j]))
 			{	
-				pair <Node,Node> res = crosspoint(cir[i],cir[j]);
+				pair <Node,Node> res = crosspoint(cir[i],cir[j]); swap(res.first,res.second);
 				double alpha1 = (res.first-cir[i].C).angle(),alpha2 = (res.second-cir[i].C).angle();
 				event.push_back(Event(res.second,alpha2,cir[j].sgn));
 				event.push_back(Event(res.first,alpha1,-cir[j].sgn));
