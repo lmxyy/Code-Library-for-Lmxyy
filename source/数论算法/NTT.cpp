@@ -7,9 +7,9 @@ struct node
 		{
 			for (j = 0,t = i,p = 0;j < loglen;++j,t >>= 1)
 				p <<= 1,p |= t&1;
-			if (p < i) swap(a[p],a[i]);
+			if (p > i) swap(a[p],a[i]);
 		}
-		for (int s = 1,k = 2;s < loglen;++s,k <<= 1)
+		for (int s = 1,k = 2;s <= loglen;++s,k <<= 1)
 		{
 			int wn; if (on) wn = e[s]; else wn = ine[s];
 			for (int i = 0;i < len;i += k)
