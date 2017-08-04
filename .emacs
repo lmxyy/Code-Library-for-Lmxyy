@@ -1,6 +1,7 @@
 (global-set-key (kbd "M-]") 'forward-paragraph)
 (global-set-key (kbd "M-[") 'backward-paragraph)
-(global-set-key (kbd "<f12>" 'print-buffer)
+(global-set-key (kbd "<f12>") 'print-buffer)
+(global-set-key (kbd "C-a") 'set-mark)
 ;;;;;启用ido模式
 (ido-mode t)
 ;;;;;去掉工具栏
