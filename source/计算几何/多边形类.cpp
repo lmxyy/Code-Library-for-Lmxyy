@@ -5,6 +5,13 @@ inline bool PointOnSegment(const Point &t,const Point &a,const Point &b)
 	return true;
 }
 
+inline bool in(const Point &a,const Point &b,const Point &c)
+{
+	double alpha = a.angle(),beta = b.angle(),gamma = c.angle(); // angle返回[0,2pi]
+	if (alpha <= beta) return dcmp(gamma-alpha) > 0&&dcmp(beta-gamma) > 0;
+	else return dcmp(gamma-alpha) > 0||dcmp(beta-gamma) > 0; 
+}
+
 struct Polygon
 {
 	int n; Point a[maxn];
@@ -49,5 +56,20 @@ struct Polygon
 		for (int i = 0;i < n;++i)
 			res -= 0.5*(a[i+1].y+a[i].y)*(a[i+1].x-a[i].x);
 		return res > 0;
+	}
+
+	// 线段ab是否有点严格在多边形内部，先判断线段是否与多边形边界有交，再判断ab是否与多边形有交，内部false，外部true
+	inline bool can(int ia,int ib)
+	{
+		Point a = P[ia],b = P[ib],v = b-a;
+		if (in(P[ia+1]-a,P[ia-1]-a,b-a)||in(P[ib+1]-b,P[ib-1]-b,a-b)) return false;
+		for (register int i = 0;i < N;++i)
+		{
+			if (dcmp(v/(P[i]-a))*dcmp(v/(P[i+1]-a)) < 0&&dcmp(vec[i]/(a-P[i]))*dcmp(vec[i]/(b-P[i])) < 0)
+				return false;
+			if (PointOnSegment(a,P[i],P[i+1])||PointOnSegment(b,P[i],P[i+1])) return false;
+			if (PointOnSegment(P[i],a,b)||PointOnSegment(P[i+1],a,b)) return false;
+		}
+		return true;
 	}
 }poly;
