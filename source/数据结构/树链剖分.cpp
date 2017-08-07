@@ -30,7 +30,7 @@ inline int query(int a,int b)
 		a = father[top[a]];
 	}
 	if (D[a] < D[b]) swap(a,b);
-	modify(1,1,N,dfn[b],dfn[a],c);
+	ret = max(ret,query(1,1,N,dfn[b],dfn[a]));
 	return ret;
 }
 
