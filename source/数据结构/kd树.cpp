@@ -13,7 +13,7 @@ struct Point
 struct Rectangle
 {
 	double lx,rx,ly,ry;
-	inline Rectangle(int _lx = 0,int _rx = 0,int _ly = 0,int _ry = 0):lx(_lx),rx(_rx),ly(_ly),ry(_ry) {}
+	inline Rectangle(double _lx = 0,double _rx = 0,double _ly = 0,double _ry = 0):lx(_lx),rx(_rx),ly(_ly),ry(_ry) {}
 	inline void set(const Point &p) { lx = rx = p.x; ly = ry = p.y; }
 	inline void merge(const Point &p)
 	{
