@@ -2,6 +2,7 @@
 (global-set-key (kbd "M-p") 'backward-paragraph)
 (global-set-key (kbd "<f12>") 'print-buffer)
 (global-set-key (kbd "C-`") 'set-mark-command)
+(global-set-key (kbd "<f5>") 'eshell)
 ;;;;;启用ido模式
 (ido-mode t)
 ;;;;;去掉工具栏
