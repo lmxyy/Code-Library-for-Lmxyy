@@ -31,10 +31,10 @@ inline int find_root(int now,int rest)
 
 inline void dfs(int now,int fa,int dep)
 {
-	nd = max(dep,nd); ++d[dep];
+	size[now] = 1; nd = max(dep,nd); ++d[dep];
 	for (int i = side[now];i;i = next[i])
 		if (toit[i] != fa&&!vis[toit[i]])
-			dfs(toit[i],now,dep+1);
+			dfs(toit[i],now,dep+1),size[now] += size[toit[i]];
 }
 
 inline void cut(int now)

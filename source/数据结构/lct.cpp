@@ -1,6 +1,31 @@
 //lct
 inline bool isroot(int a)
 { return ch[fa[a]][0] != a&&ch[fa[a]][1] != a; }
+
+inline void rotate(int x)
+{
+	int y = fa[x],z = fa[y],l = ch[y][1] == x,r = l^1;
+	if (!isroot(y)) ch[z][ch[z][1] == y] = x; fa[x] = z;
+	if (ch[x][r]) fa[ch[x][r]] = y; ch[y][l] = ch[x][r];
+	fa[y] = x; ch[x][r] = y; update(y); update(x);
+}
+inline void splay(int x)
+{
+	int top = 0,i;
+	for (i = x;!isroot(i);i = fa[i]) stk[++top] = i; stk[++top] = i;
+	while (top) pushdown(stk[top--]);
+	while (!isroot(x))
+	{
+		int y = fa[x],z = fa[y];
+		if (!isroot(y))
+		{
+			if ((ch[y][0] == x)^(ch[z][0] == y)) rotate(x);
+			else rotate(y);
+		}
+		rotate(x);
+	}
+}
+
 inline int access(int x)
 {
 	int t;
