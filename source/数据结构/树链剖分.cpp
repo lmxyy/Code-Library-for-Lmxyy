@@ -1,11 +1,11 @@
-inline void Div(int now,int tp)
+inline void subdivide(int now,int tp)
 {
 	dfn[now] = ++DFN; seq[DFN] = now; top[now] = tp; int heavy = 0;
 	for (int i = side[now];i;i = nxt[i])
 		if (toit[i] != father[now]&&size[toit[i]] > size[heavy]) heavy = toit[i];
-	if (!heavy) return; Div(heavy,tp);
+	if (!heavy) return; subdivide(heavy,tp);
 	for (int i = side[now];i;i = nxt[i])
-		if (toit[i] != father[now]&&toit[i] != heavy) Div(toit[i],toit[i]);
+		if (toit[i] != father[now]&&toit[i] != heavy) subdivide(toit[i],toit[i]);
 }
 
 inline void dfs(int now)
