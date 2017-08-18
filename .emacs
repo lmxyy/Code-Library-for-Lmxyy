@@ -3,6 +3,15 @@
 (global-set-key (kbd "<f12>") 'print-buffer)
 (global-set-key (kbd "C-`") 'set-mark-command)
 (global-set-key (kbd "<f5>") 'eshell)
+;;;;comment-dwim
+(defun qiang-comment-dwim-line (&optional arg)
+  "Replacement for the comment-dwim command. If no region is selected and current line is not blank and we are not at the end of the line, then comment current line. Replaces default behaviour of comment-dwim, when it inserts comment at the end of the line."
+  (interactive "*P")
+  (comment-normalize-vars)
+  (if (and (not (region-active-p)) (not (looking-at "[ \t]*$")))
+      (comment-or-uncomment-region (line-beginning-position) (line-end-position))
+    (comment-dwim arg)))
+(global-set-key "\M-;" 'qiang-comment-dwim-line) 
 ;;;;;启用ido模式
 (ido-mode t)
 ;;;;;去掉工具栏
@@ -62,6 +71,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
+ '(cua-mode t nil (cua-base))
  '(inhibit-startup-screen t)
  '(menu-bar-mode nil)
  '(tool-bar-mode nil))
