@@ -1,6 +1,18 @@
-//lct
-inline bool isroot(int a)
-{ return ch[fa[a]][0] != a&&ch[fa[a]][1] != a; }
+
+inline bool isroot(int a) { return ch[fa[a]][0] != a&&ch[fa[a]][1] != a; }
+
+inline void update(int x) { val[x] = (val[ch[x][0]]+val[ch[x][1]]).merge(x); }
+inline void pushdown(int x)
+{
+	if (rev[x])
+	{
+		int &lc = ch[x][0],&rc = ch[x][1];
+		swap(lc,rc);
+		if (lc) rev[lc] ^= 1;
+		if (rc) rev[rc] ^= 1;
+		rev[x] = false;
+	}
+}
 
 inline void rotate(int x)
 {
@@ -28,11 +40,12 @@ inline void splay(int x)
 
 inline int access(int x)
 {
-	int t;
-	for (t = 0;x;t = x,x = fa[x]) splay(x),ch[x][1] = t,update(x);
+	int t = 0;
+	for (t = 0;x;t = x,x = fa[x])
+		splay(x),ch[x][1] = t,update(x);
 	return t;
 }
-inline void evert(int x) { x = access(x); rev[x] ^= 1; }
+inline int evert(int x) { int t; rev[t = access(x)] ^= 1; return t; }
 inline int find(int x)
 {
 	x = access(x);
@@ -43,10 +56,6 @@ inline void cut(int x,int y)
 {
 	evert(x); access(y); splay(y);
 	if (ch[y][0] != x||ch[x][1] != 0) return;
-	ch[y][0] = fa[x] = 0; update(x);
+	ch[y][0] = fa[x] = 0; update(x); update(y);
 }
-inline void link(int x,int y)
-{
-	if (find(x) == find(y)) return;
-	evert(x); fa[x] = y;
-}
+inline void link(int x,int y) { fa[evert(x)] = y; }
