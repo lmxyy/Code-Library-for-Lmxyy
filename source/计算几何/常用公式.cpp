@@ -5,37 +5,37 @@ inline int dcmp(double a)
 	else if (a > 0) return 1;
 	else return -1;
 }
-struct Node
+struct Point
 {
     double x,y;
-	inline Node(double _x = 0,double _y = 0):x(_x),y(_y) {}
-	friend inline bool operator ==(const Node &p,const Node &q)
+	inline Point(double _x = 0,double _y = 0):x(_x),y(_y) {}
+	friend inline bool operator ==(const Point &p,const Point &q)
 	{ return !dcmp(p.x-q.x)&&!dcmp(p.y-q.y); }
-    friend inline Node operator + (const Node &p,const Node &q)
-	{ return Node(p.x+q.x,p.y+q.y); }
-    friend inline Node operator - (const Node &p,const Node &q)
-	{ return Node(p.x-q.x,p.y-q.y); }
-    friend inline Node operator * (const Node &p,const double &q)
-	{ return Node(p.x*q,p.y*q); }
-    friend inline double operator /(const Node &p,const Node &q)
+    friend inline Point operator + (const Point &p,const Point &q)
+	{ return Point(p.x+q.x,p.y+q.y); }
+    friend inline Point operator - (const Point &p,const Point &q)
+	{ return Point(p.x-q.x,p.y-q.y); }
+    friend inline Point operator * (const Point &p,const double &q)
+	{ return Point(p.x*q,p.y*q); }
+    friend inline double operator /(const Point &p,const Point &q)
 	{ return p.x*q.y-p.y*q.x; }
 	inline double norm() { return sqrt(x*x+y*y); }
     inline double angle() { return atan2(y,x); }
 };
 struct Line
 {
-    Node p,v; double slop;
+    Point p,v; double slop;
     inline void maintain() { slop = v.alpha(); }
     friend inline bool operator <(const Line &l1,const Line &l2)
 	{ return l1.slop < l2.slop; }
-	inline double dis(const Node &a) { fabs((a-p)/v)/(v.len()); } //点到直线距离
+	inline double dis(const Point &a) { fabs((a-p)/v)/(v.len()); } //点到直线距离
 };
 
-inline bool ol(const Line &l,const Node &p) { return !dcmp(l.v/(p-l.p)); } //点在直线上
+inline bool ol(const Line &l,const Point &p) { return !dcmp(l.v/(p-l.p)); } //点在直线上
 
-inline Node cp(const Line &a,const Line &b)  //直线交点
+inline Point cp(const Line &a,const Line &b)  //直线交点
 {
-    Node u = a.p - b.p;
+    Point u = a.p - b.p;
     double t = (b.v/u)/(a.v/b.v);
     return a.p+a.v*t;
 }
