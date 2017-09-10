@@ -1,5 +1,4 @@
 //圆圆求交，需先判定两圆有交
-
 inline Point rotate(const Point &p,double cost,double sint)
 {
 	double x = p.x,y = p.y;

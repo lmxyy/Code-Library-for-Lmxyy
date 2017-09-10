@@ -87,25 +87,27 @@ inline int dcmp(double a)
 	else if (a > 0) return 1; else return -1;
 }
 
-struct Node
+struct Point
 {
 	double x,y;
-	inline  Node(double _x = 0,double _y = 0):x(_x),y(_y) {}
+	inline Point() = default;
+	inline Point(double _x,double _y):x(_x),y(_y) {}
 	inline void read() { x = gi(),y = gi(); }
 	inline double norm() const { return sqrt(x*x+y*y); }
 	inline double angle() const { return atan2(y,x); }
-	inline Node unit() const { double len = norm(); return Node(x/len,y/len); }
-	friend inline Node operator-(const Node &a,const Node &b) { return Node(a.x-b.x,a.y-b.y); }
-	friend inline Node operator+(const Node &a,const Node &b) { return Node(a.x+b.x,a.y+b.y); }
-	friend inline Node operator*(const Node &a,double b) { return Node(a.x*b,a.y*b); }
-	friend inline Node operator*(double b,const Node &a) { return Node(a.x*b,a.y*b); }
-	friend inline Node operator/(const Node &a,double b) { return Node(a.x/b,a.y/b); }
-	friend inline double operator/(const Node &a,const Node &b) { return a.x*b.y-a.y*b.x; }
+	inline Point unit() const { double len = norm(); return Point(x/len,y/len); }
+	friend inline Point operator-(const Point &a,const Point &b) { return Point(a.x-b.x,a.y-b.y); }
+	friend inline Point operator+(const Point &a,const Point &b) { return Point(a.x+b.x,a.y+b.y); }
+	friend inline Point operator*(const Point &a,double b) { return Point(a.x*b,a.y*b); }
+	friend inline Point operator*(double b,const Point &a) { return Point(a.x*b,a.y*b); }
+	friend inline Point operator/(const Point &a,double b) { return Point(a.x/b,a.y/b); }
+	friend inline double operator/(const Point &a,const Point &b) { return a.x*b.y-a.y*b.x; }
 };
 struct Circle
 {
-	Node C; double r; int sgn;
-	inline Circle(const Node &_C = Node(),double _r = 0,int _sgn = 1):C(_C),r(_r),sgn(_sgn) {} // sgn代表该圆的权值，默认1 
+	Point C; double r; int sgn;
+	inline Circle() = default;
+	inline Circle(const Point &_C,double _r,int _sgn):C(_C),r(_r),sgn(_sgn) {} // sgn代表该圆的权值，默认1 
 	friend inline bool operator==(const Circle &a,const Circle &b)
 	{
 		if (dcmp(a.r-b.r)) return false;
@@ -117,18 +119,18 @@ struct Circle
 	friend inline bool operator!=(const Circle &a,const Circle &b) { return !(a == b); }
 }cir[maxn];
 
-inline Node rotate(const Node &p,double cost,double sint)
+inline Point rotate(const Point &p,double cost,double sint)
 {
 	double x = p.x,y = p.y;
-	return Node(x*cost-y*sint,x*sint+y*cost);
+	return Point(x*cost-y*sint,x*sint+y*cost);
 }
-inline pair <Node,Node> crosspoint(const Node &ap,double ar,const Node &bp,double br)
+inline pair <Point,Point> crosspoint(const Point &ap,double ar,const Point &bp,double br)
 {
 	double d = (ap-bp).norm(),cost = (ar*ar+d*d-br*br)/(2*ar*d),sint = sqrt(1-cost*cost);
-	Node v = ((bp-ap).unit())*ar;
+	Point v = ((bp-ap).unit())*ar;
 	return make_pair(ap+rotate(v,cost,-sint),ap+rotate(v,cost,sint));
 }
-inline pair <Node,Node> crosspoint(const Circle &a,const Circle &b) { return crosspoint(a.C,a.r,b.C,b.r); }
+inline pair <Point,Point> crosspoint(const Circle &a,const Circle &b) { return crosspoint(a.C,a.r,b.C,b.r); }
 
 inline bool overlap(const Circle &a,const Circle &b) { return dcmp(a.r-b.r-(a.C-b.C).norm()) >= 0; } // b是不是在a里面
 inline bool intersect(const Circle &a,const Circle &b)
@@ -140,8 +142,9 @@ inline bool intersect(const Circle &a,const Circle &b)
 
 struct Event
 {
-	Node p; double a; int d;
-	inline Event(const Node &_p = Node(),double _a = 0,double _d = 0):p(_p),a(_a),d(_d) {}
+	Point p; double a; int d;
+	inline Event() = default;
+	inline Event(const Point &_p,double _a,double _d):p(_p),a(_a),d(_d) {}
 	friend inline bool operator <(const Event &a,const Event &b) { return a.a < b.a; }
 };
 
@@ -157,7 +160,7 @@ inline void solve()
 		for (int j = 1;j <= M;++j)
 			if (j != i&&intersect(cir[i],cir[j]))
 			{	
-				pair <Node,Node> res = crosspoint(cir[i],cir[j]); swap(res.first,res.second);
+				pair <Point,Point> res = crosspoint(cir[i],cir[j]); swap(res.first,res.second);
 				double alpha1 = (res.first-cir[i].C).angle(),alpha2 = (res.second-cir[i].C).angle();
 				event.push_back(Event(res.second,alpha2,cir[j].sgn));
 				event.push_back(Event(res.first,alpha1,-cir[j].sgn));

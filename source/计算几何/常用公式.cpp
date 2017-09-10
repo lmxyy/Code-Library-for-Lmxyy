@@ -8,7 +8,8 @@ inline int dcmp(double a)
 struct Point
 {
     double x,y;
-	inline Point(double _x = 0,double _y = 0):x(_x),y(_y) {}
+	inline Point() = default;
+	inline Point(double _x,double _y):x(_x),y(_y) {}
 	friend inline bool operator ==(const Point &p,const Point &q)
 	{ return !dcmp(p.x-q.x)&&!dcmp(p.y-q.y); }
     friend inline Point operator + (const Point &p,const Point &q)
@@ -25,20 +26,22 @@ struct Point
 struct Line
 {
     Point p,v; double slop;
-    inline void maintain() { slop = v.alpha(); }
+	inline Line() = default;
+	inline Line(const Point &_p,const Point &_v):p(_p),v(_v) {}
+    inline void update() { slop = v.alpha(); }
     friend inline bool operator <(const Line &l1,const Line &l2)
 	{ return l1.slop < l2.slop; }
 	inline double dis(const Point &a) { fabs((a-p)/v)/(v.len()); } //点到直线距离
 };
 
-inline bool ol(const Line &l,const Point &p) { return !dcmp(l.v/(p-l.p)); } //点在直线上
+inline bool OnLine(const Line &l,const Point &p) { return !dcmp(l.v/(p-l.p)); } //点在直线上
 
-inline Point cp(const Line &a,const Line &b)  //直线交点
+inline Point CrossPoint(const Line &a,const Line &b)  //直线交点
 {
     Point u = a.p - b.p;
     double t = (b.v/u)/(a.v/b.v);
     return a.p+a.v*t;
 }
 
-inline bool para(const Line &a,const Line &b)
+inline bool parallel(const Line &a,const Line &b)
 { return !dcmp(a.v/b.v); } //直线平行
