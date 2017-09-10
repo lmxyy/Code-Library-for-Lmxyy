@@ -1,7 +1,8 @@
 struct Point
 {
 	double x,y; int id;
-	inline Point(double _x = 0,double _y = 0,int _id = 0):x(_x),y(_y),id(_id) {}
+	inline Point() = default;
+	inline Point(double _x,double _y,int _id):x(_x),y(_y),id(_id) {}
 	inline void read(int i = 0) { scanf("%lf %lf",&x,&y); id = i; }
 	inline double norm() { return sqrt(x*x+y*y); }
 	friend inline Point operator+(const Point &a,const Point &b) { return Point(a.x+b.x,a.y+b.y); }
@@ -13,7 +14,8 @@ struct Point
 struct Rectangle
 {
 	double lx,rx,ly,ry;
-	inline Rectangle(double _lx = 0,double _rx = 0,double _ly = 0,double _ry = 0):lx(_lx),rx(_rx),ly(_ly),ry(_ry) {}
+	inline Rectangle() = default;
+	inline Rectangle(double _lx,double _rx,double _ly,double _ry):lx(_lx),rx(_rx),ly(_ly),ry(_ry) {}
 	inline void set(const Point &p) { lx = rx = p.x; ly = ry = p.y; }
 	inline void merge(const Point &p)
 	{
@@ -25,6 +27,7 @@ struct Rectangle
 		lx = min(lx,r.lx); rx = max(rx,r.rx);
 		ly = min(ly,r.ly); ry = max(ry,r.ry);
 	}
+	// 最小距离，到4个角和4条边距离
 	inline double dist(const Point &p)
 	{
 		if (p.x <= lx&&p.y <= ly) return (p-Point(lx,ly)).norm();
@@ -37,12 +40,21 @@ struct Rectangle
 		else if (p.x <= lx&&p.y >= ly) return p.x-lx;
 		return 0;
 	}
+	// 最大距离，到4个角的距离
+	inline double dist(const Point &p)
+	{
+		double ret = 0;
+		ret += max((rx-p.x)*(rx-p.x),(lx-p.x)*(lx-p.x));
+		ret += max((ry-p.y)*(ry-p.y),(ly-p.y)*(ly-p.y));
+		return ret;
+	}
 };
 
 struct Node
 {
 	int child[2]; Point p; Rectangle r;
-	inline Node(const Point &_p = Point(),const Rectangle &_r = Rectangle()):p(_p),r(_r) { r.set(p); memset(child,0,8); }
+	inline Node() = default;
+	inline Node(const Point &_p,const Rectangle &_r):p(_p),r(_r) { r.set(p); memset(child,0,8); }
 	inline void set(const Point &_p) { p = _p; r.set(p); memset(child,0,8); }
 }tree[maxn];
 
@@ -64,6 +76,7 @@ inline bool cmp(pair <double,int> a,pair <double,int> b)
 	else return a.second < b.second;
 }	
 
+// 查询k大/小
 inline void query(int now,const Point &p,int k,pair <double,int> ret[],bool dim = false)
 {
 	if (dcmp(tree[now].r.dist(p)-ret[k].first) > 0) return;
@@ -84,6 +97,24 @@ inline void query(int now,const Point &p,int k,pair <double,int> ret[],bool dim 
 		if (tree[now].child[1]) query(tree[now].child[1],p,k,ret,dim^1);
 		if (tree[now].child[0]) query(tree[now].child[0],p,k,ret,dim^1);
 	}
+}
+
+// 查询最小/大
+inline void query(int x,const Point &p,pair <double,int> ret,bool dim = false)
+{
+	if (dcmp(tree[now].r.disp(p)-ret.first) > 0) return;
+	pair <double,int> val = make_pair((p-tree[now].p).norm(),tree[now].p.id);
+	if (cmp(val,ret)) ret = val;
+	if ((dim&&cmpx(p,tree[now].p))||(!dim&&cmpy(p,tree[now].p)))
+	{
+		if (tree[now].child[0]) query(tree[now].child[0],p,ret,dim^1);
+		if (tree[now].child[1]) query(tree[now].child[1],p,ret,dim^1);
+	}
+	else
+	{
+		if (tree[now].child[1]) query(tree[now].child[1],p,ret,dim^1);
+		if (tree[now].child[0]) query(tree[now].child[0],p,ret,dim^1);
+	}	
 }
 
 inline int build(int l,int r,bool dim)
