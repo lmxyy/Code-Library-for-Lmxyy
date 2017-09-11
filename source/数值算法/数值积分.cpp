@@ -7,6 +7,7 @@ inline long double simpson(long double l,long double r,long double mid,long doub
 	// if (dep > lim&&fabs(lans+rans-ans)<eps) return ans;
     else return simpson(l,mid,(l+mid)/2,Cl,Cm,tCl)+simpson(mid,r,(mid+r)/2,Cm,Cr,tCr);
 }
+
 //romberg---to be verified
 template <class T>
 inline double romberg(const T &f,double a,double b,double eps = 1e-8)
