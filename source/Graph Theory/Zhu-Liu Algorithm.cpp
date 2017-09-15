@@ -1,4 +1,3 @@
-
 struct Directed_MT
 {
 	struct Edge
@@ -7,7 +6,7 @@ struct Directed_MT
 		inline Edge() = default;
 		inline Edge(int _u,int _v,int _w):u(_u),v(_v),w(_w) {}
 	};
-	int nn,mm,n,m,vis[maxn],pre[maxn],id[maxn],in[maxn]; Edge edges[maxn],bac[maxn];
+	int n,m,vis[maxn],pre[maxn],id[maxn],in[maxn]; Edge edges[maxm];
 
 	inline void init(int _n) { n = _n; m = 0; }
 	inline void AddEdge(int u,int v,int w) { edges[m++] = Edge(u,v,w); }
