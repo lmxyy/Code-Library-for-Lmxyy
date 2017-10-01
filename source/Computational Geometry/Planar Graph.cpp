@@ -5,13 +5,13 @@ inline int dcmp(double a)
 	else if (a > 0) return 1;
 	else return -1;
 }
-struct Node
+struct Point
 {
 	double x,y;
-	inline Node(double _x = 0,double _y = 0):x(_x),y(_y) {}
+	inline Point(double _x = 0,double _y = 0):x(_x),y(_y) {}
 	inline void read() { x = gi(),y = gi(); }
-	friend inline Node operator-(const Node &a,const Node &b) { return Node(a.x-b.x,a.y-b.y); }
-	friend inline double operator/(const Node &a,const Node &b) { return a.x*b.y-a.y*b.x; }
+	friend inline Point operator-(const Point &a,const Point &b) { return Point(a.x-b.x,a.y-b.y); }
+	friend inline double operator/(const Point &a,const Point &b) { return a.x*b.y-a.y*b.x; }
 	inline double angle() { return atan2(y,x); }
 }pp[maxn];
 struct Segment
@@ -39,7 +39,7 @@ inline void find_surface()
 	for (int i = 2;i <= ncnt;++i)
 		if (!edge[i].sur)
 		{
-			++tot; int j = i,p,nn; vector <Node> vec;
+			++tot; int j = i,p,nn; vector <Point> vec;
 			while (!edge[j].sur)
 			{
 				edge[j].sur = tot; vec.push_back(pp[edge[j].from]);
@@ -110,7 +110,7 @@ struct Splay
 		root = x;
 	}
 
-	inline int lower_bound(const Node &p)
+	inline int lower_bound(const Point &p)
 	{
 		int now = root,ret = 0;
 		while (now)
@@ -220,7 +220,7 @@ inline void locate()
 		bac[++nn] = Scan(x,y,i,1);
 	}
 	sort(bac+1,bac+nn+1);
-	pp[++n] = Node(-oo,-oo); pp[++n] = (oo,-oo);
+	pp[++n] = Point(-oo,-oo); pp[++n] = (oo,-oo);
 	edge[++cnt] = Edge(n-1,n);
 	S.init(); int p;
 	for (int i = 1;i <= nn;++i)
@@ -232,7 +232,7 @@ inline void locate()
 		}
 		else
 		{
-			p = S.lower_bound(Node(bac[i].x,bac[i].y));
+			p = S.lower_bound(Point(bac[i].x,bac[i].y));
 			query[bac[i].bel][bac[i].sign] = edge[p].sur;
 		}
 	}
