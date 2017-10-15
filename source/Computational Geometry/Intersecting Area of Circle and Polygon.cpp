@@ -85,4 +85,3 @@ double getArea(int n,Point *p,const Point &c,double r)
 	}
 	return fabs(ret);
 }
-
