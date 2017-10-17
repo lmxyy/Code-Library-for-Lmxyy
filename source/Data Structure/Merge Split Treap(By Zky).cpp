@@ -1,3 +1,4 @@
+// By zky. To be rewritten.
 const int mo=1e9+7;
 int rnd(){
     static int x=1;

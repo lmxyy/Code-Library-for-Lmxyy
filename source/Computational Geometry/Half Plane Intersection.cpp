@@ -5,38 +5,44 @@ inline int dcmp(double a)
 	else if (a > 0) return 1; else return -1;
 }
 
-struct Node
+struct Point
 {
 	double x,y;
-	inline Node(double _x = 0,double _y = 0):x(_x),y(_y) {}
+	inline Point() = default;
+	inline Point(double _x,double _y):x(_x),y(_y) {}
 	inline void read() { x = gi(),y = gi(); }
-	inline Node vertical() const { return Node(-y,x); }
-	inline Node unit() const { double len = norm(); return Node(x/len,y/len); }
+	inline Point vertical() const { return Point(-y,x); }
+	inline Point unit() const
+	{
+		double len = norm();
+		if (!dcmp(len)) return Point(1,0);
+		else return *this/len;
+	}
 	inline double norm() const { return sqrt(x*x+y*y); }
 	inline double angle() const { return atan2(y,x); }
-	friend inline Node operator+(const Node &a,const Node &b) { return Node(a.x+b.x,a.y+b.y); }
-	friend inline Node operator-(const Node &a,const Node &b) { return Node(a.x-b.x,a.y-b.y); }
-	friend inline Node operator*(const Node &a,double b) { return Node(a.x*b,a.y*b); }
-	friend inline Node operator*(double b,const Node &a) { return Node(a.x*b,a.y*b); }
-	friend inline double operator/(const Node &a,const Node &b) { return a.x*b.y-a.y*b.x; }
+	friend inline Point operator+(const Point &a,const Point &b) { return Point(a.x+b.x,a.y+b.y); }
+	friend inline Point operator-(const Point &a,const Point &b) { return Point(a.x-b.x,a.y-b.y); }
+	friend inline Point operator*(const Point &a,double b) { return Point(a.x*b,a.y*b); }
+	friend inline Point operator*(double b,const Point &a) { return Point(a.x*b,a.y*b); }
+	friend inline double operator/(const Point &a,const Point &b) { return a.x*b.y-a.y*b.x; }
 }P[maxn],pp[maxn],pol[maxn];
 
 struct Line
 {
-	Node p,v;
-	inline Line(const Node _p = Node(),const Node _v = Node()):p(_p),v(_v) {}
+	Point p,v;
+	inline Line(const Point _p = Point(),const Point _v = Point()):p(_p),v(_v) {}
 	inline double slop() const { return v.angle(); }
 	friend inline bool operator<(const Line &a,const Line &b) { return a.slop() < b.slop(); }
 }line[maxn],qq[maxn];
 
-inline bool onleft(const Line &L,const Node &p)
+inline bool onleft(const Line &L,const Point &p)
 {
 	return dcmp(L.v/(p-L.p)) > 0;
 }
 inline bool parallel(const Line &a,const Line &b) { return !dcmp(a.v/b.v); }
-inline Node crosspoint(const Line &a,const Line &b)
+inline Point crosspoint(const Line &a,const Line &b)
 {
-	Node u = a.p-b.p;
+	Point u = a.p-b.p;
 	double t = (b.v/u)/(a.v/b.v);
 	return a.p+(a.v*t);
 }

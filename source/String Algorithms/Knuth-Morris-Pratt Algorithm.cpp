@@ -1,3 +1,4 @@
+// To Be Verified
 void cal_next(char *str, int *next, int len)
 {
 	int i,j;

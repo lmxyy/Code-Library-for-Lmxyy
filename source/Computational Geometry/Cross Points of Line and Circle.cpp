@@ -1,6 +1,6 @@
 //a b直线两点，o圆心
 //若a b为线段，则0 <= t1,t2 <= 1
-inline void crosspoint(const Point &a,const Point &b,const Point &o,double r,Point *ret,int &num)
+inline void CrossPoint(const Point &a,const Point &b,const Point &o,double r,Point *ret,int &num)
 {
 	double X0 = o.x,Y0 = o.y;
 	double X1 = a.x,Y1 = a.y;

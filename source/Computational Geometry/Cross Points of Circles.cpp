@@ -5,7 +5,7 @@ inline Point rotate(const Point &p,double cost,double sint)
 	return Point(x*cost-y*sint,x*sint+y*cost);
 }
 
-inline pair <Point,Point> cp(const Point &ap,double ar,const Point &bp,double br)
+inline pair <Point,Point> CrossPoint(const Point &ap,double ar,const Point &bp,double br)
 {
 	double d = (ap-bp).norm();
 	double cost = (ar*ar+d*d-br*br)/(2*ar*d),sint = sqrt(1-cost*cost);

@@ -1,4 +1,4 @@
-//后缀自动机
+// Correct but to Be Rewritten
 struct SAM
 {
     int tot,tail,cnt,p,np,q,nq,sz[maxn],arr[maxn],step[maxn],tran[maxn][26],parent[maxn];

@@ -1,3 +1,10 @@
+int side[maxv],nxt[maxe],toit[maxe],cost[maxe],pre[maxv];
+int cap[maxv],arr[maxv],dis[maxv]; bool in[maxv];
+int source,sink;
+
+inline void add(int a,int b,int c,int d) { nxt[++cnt] = side[a]; side[a] = cnt; toit[cnt] = b; cap[cnt] = c; cost[cnt] = d; }
+inline void ins(int a,int b,int c,int d) { add(a,b,c,d); add(b,a,0,-d); }
+
 inline bool spfa(int &Flow,int &Cost)
 {
     queue <int> team; team.push(source);
@@ -7,7 +14,7 @@ inline bool spfa(int &Flow,int &Cost)
     while (!team.empty())
     {
         int now = team.front(); team.pop();
-        for (int i = side[now];i;i = next[i])
+        for (int i = side[now];i;i = nxt[i])
         {
             if (!cap[i]) continue;
             if (dis[toit[i]] > dis[now]+cost[i])

@@ -1,4 +1,5 @@
-//求出最小的t使得X^t = Y mod mod
+// To Be Verified
+// 求出最小的t使得X^t = Y mod mod
 inline int bsgs(int X,int Y,int mod)
 {
 	int m = ceil(sqrt(mod+0.5)),mul = 1,res = 1;

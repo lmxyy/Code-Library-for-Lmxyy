@@ -10,18 +10,33 @@ struct Point
     double x,y;
 	inline Point() = default;
 	inline Point(double _x,double _y):x(_x),y(_y) {}
-	friend inline bool operator ==(const Point &p,const Point &q)
-	{ return !dcmp(p.x-q.x)&&!dcmp(p.y-q.y); }
-    friend inline Point operator + (const Point &p,const Point &q)
-	{ return Point(p.x+q.x,p.y+q.y); }
-    friend inline Point operator - (const Point &p,const Point &q)
-	{ return Point(p.x-q.x,p.y-q.y); }
-    friend inline Point operator * (const Point &p,const double &q)
-	{ return Point(p.x*q,p.y*q); }
-    friend inline double operator /(const Point &p,const Point &q)
-	{ return p.x*q.y-p.y*q.x; }
-	inline double norm() { return sqrt(x*x+y*y); }
-    inline double angle() { return atan2(y,x); }
+	inline Point unit() const
+	{
+		double len = norm();
+		if (!dcmp(len)) return Point(1,0);
+		else return *this/len;
+	}
+	inline double norm() const { return sqrt(x*x+y*y); }
+	inline Point reflect(const Point &p) const
+	{
+		Point v = *this-p; double len = v.norm();
+		v = v/len; return p+v*(1/len);
+	}
+	inline void read() { scanf("%lf %lf",&x,&y); }
+	inline Point vertical() const { return Point(y,-x); }
+	inline double angle() const
+	{
+		double ret = atan2(y,x);
+		if (ret < 0) ret += 2*pi;
+		return ret;
+	}
+	friend inline bool operator ==(const Point &a,const Point &b) { return !dcmp(a.x-b.x)&&!dcmp(a.y-b.y); }
+    friend inline Point operator -(const Point &a,const Point &b) { return Point(a.x-b.x,a.y-b.y); }
+	friend inline Point operator +(const Point &a,const Point &b) { return Point(a.x+b.x,a.y+b.y); }
+	friend inline Point operator /(const Point &a,double b) { return Point(a.x/b,a.y/b); }
+	friend inline Point operator *(const Point &a,double b) { return Point(a.x*b,a.y*b); }
+	friend inline Point operator *(double b,const Point &a) { return Point(a.x*b,a.y*b); }
+	friend inline double operator /(const Point &a,const Point &b) { return a.x*b.y-a.y*b.x; }
 };
 struct Line
 {
@@ -43,5 +58,4 @@ inline Point CrossPoint(const Line &a,const Line &b)  //直线交点
     return a.p+a.v*t;
 }
 
-inline bool parallel(const Line &a,const Line &b)
-{ return !dcmp(a.v/b.v); } //直线平行
+inline bool parallel(const Line &a,const Line &b) { return !dcmp(a.v/b.v); } //直线平行

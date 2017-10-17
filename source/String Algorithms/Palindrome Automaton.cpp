@@ -1,3 +1,4 @@
+// Correct but to Be Rewritten
 struct pat
 {
 	int next[maxn][26],fail[maxn],cnt[maxn],len[maxn],s[maxn],last,n,p;

@@ -1,3 +1,4 @@
+// It's correct, but it needs be rewritten.
 #include<iostream>
 #include<cstdio>
 #include<cstdlib>

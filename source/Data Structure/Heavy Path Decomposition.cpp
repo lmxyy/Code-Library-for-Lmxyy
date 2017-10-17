@@ -1,6 +1,7 @@
-int timestamp,dfn[maxn],redfn[maxn],top[maxn],size[maxn];
+int side[maxn],toit[maxn<<1],nxt[maxn<<1],nxt[maxn<<1];
+int timestamp,father[maxn],dfn[maxn],redfn[maxn],top[maxn],size[maxn];
 
-inline void decompose(int now,int tp)
+void decompose(int now,int tp)
 {
 	redfn[dfn[now] = ++timestamp] = now;
 	top[now] = tp; int heavy = 0;
@@ -11,7 +12,7 @@ inline void decompose(int now,int tp)
 		if (toit[i] != father[now]&&toit[i] != heavy) decompose(toit[i],toit[i]);
 }
 
-inline void dfs(int now)
+void dfs(int now)
 {
 	size[now] = 1;
 	for (int i = side[now];i;i = nxt[i])
