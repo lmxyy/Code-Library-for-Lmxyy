@@ -1,0 +1,25 @@
+\documentclass[11pt]{article}
+\usepackage{xeCJK}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{enumerate}
+
+\begin{document}
+	\section{有上下界网络流}
+	\begin{enumerate}[1.]
+		\item \textbf{无源汇有上下界可行流}
+			
+			设原来源点为$Source$，汇点是$Sink$。新建一个超级源$SuperSource$和超级汇$SuperSink$。对于原网络中的每一条边$u \rightarrow v$，上界$U$，下界$L$，将它拆分为三条边：
+			\begin{enumerate}[(1)]
+				\item $u \rightarrow SuperSink$，容量为$L$。
+				\item $SuperSource \rightarrow v$，容量为$L$。
+				\item $u \rightarrow v$，容量为$U-L$。
+			\end{enumerate}
+			最后添加边$Sink \rightarrow Source$，容量为$+\infty$。在新建的网络上，计算从$SuperSource$到$SuperSink$的最大流。若每条从$SuperSource$发出的边都满流，说明存在可行流，否则不。每条边实际流量为容量下界$+$附加流中它的流量。
+		\item \textbf{有源汇有上下界最大流}
+		
+			在``无源汇有上下界可行流''建图上，新增一条$Sink \rightarrow Source$的边，容量为$+\infty$。先判断是否存在可行流，若存在可行流，接着在原图中$Source \rightarrow Sink$最大流增广加上原可行流即为最大流答案。（若存在可行流，去掉下界后最大流即为原图有源汇有上下界最大流）
+		\item \textbf{有源汇有上下界最小流}
+			
+	\end{enumerate}
+\end{document}

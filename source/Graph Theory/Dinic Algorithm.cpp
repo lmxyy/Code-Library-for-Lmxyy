@@ -1,5 +1,6 @@
 // dinic
 int source,sink;
+int d[maxv],side[maxv],cur[maxv],side[maxe],nxt[maxe],toit[maxe],cap[maxe]; bool in[maxv];
 inline bool bfs()
 {
 	queue <int> team; team.push(source); d[source] = 0;
@@ -7,7 +8,7 @@ inline bool bfs()
 	while (!team.empty())
 	{
 		int now = team.front(); team.pop(); cur[now] = side[now];
-		for (int i = side[now];i;i = next[i])
+		for (int i = side[now];i;i = nxt[i])
 		{
 			if (!cap[i]) continue;
 			if (!in[toit[i]])
@@ -21,7 +22,7 @@ inline int dfs(int now,int f)
 {
 	if (now == sink||!f) return f;
 	int used = 0,w;
-	for (int &i = cur[now];i;i = next[i])
+	for (int &i = cur[now];i;i = nxt[i])
 		if (cap[i]&&d[toit[i]] == d[now]+1)
 		{
 			w = dfs(toit[i],min(cap[i],f-used));
