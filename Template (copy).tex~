@@ -290,6 +290,9 @@
 \section{Emacs Configuration-Full}
 \emacscode{/Others/Full.emacs}
 \section{Emacs Configuration-Competition}
+\textbf{Default Font:} Courier 10 Pitch Bold \qquad \textbf{Size:} 15
+
+Remember to set \textbf{CUA-mode} and \textbf{save your options}.
 \emacscode{/Others/Competition.emacs}
 
 \end{document}

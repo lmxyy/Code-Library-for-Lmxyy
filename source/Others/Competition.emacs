@@ -1,3 +1,5 @@
+;; Default Font: Courier 10 Pitch Bold    Size: 15
+;; Remember to set CUA-mode and save your options.
 (global-set-key (kbd "M-n") 'forward-paragraph)
 (global-set-key (kbd "M-p") 'backward-paragraph)
 (global-linum-mode t)
