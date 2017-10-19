@@ -1,3 +1,4 @@
+// 记得最后填一个字符集中没有的字符
 inline void build(char *buf,int *Sa,int *Rank,int *Height,int n,int now,int m)
 {
     int i,j,k,*x = t1,*y = t2;
