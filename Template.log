@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2017.8.30)  19 OCT 2017 15:45
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2017.8.30)  19 OCT 2017 19:38
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1662,7 +1662,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 LaTeX Font Info:    Font shape `EU1/FandolSong-Regular(0)/m/sl' in size <10.539
 37> not available
 (Font)              Font shape `EU1/FandolSong-Regular(0)/m/it' tried instead o
-n input line 73.
+n input line 74.
  [3])
 \tf@toc=\write7
 \openout7 = `Template.toc'.
@@ -2037,93 +2037,103 @@ runsystem(pygmentize -l cpp -f latex -P commandprefix=PYG -F tokenmerge -P math
 escape=True -o "Template.out.pyg" "source//Graph Theory/Isap Algorithm.cpp" )..
 .executed.
 
- (./Template.out.pyg [81])
+ (./Template.out.pyg [81]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [82]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [83]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [84]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [85])
 runsystem(pygmentize -l cpp -f latex -P commandprefix=PYG -F tokenmerge -P math
 escape=True -o "Template.out.pyg" "source//Graph Theory/Kuhn-Munkres Algorithm.
 cpp" )...executed.
 
- (./Template.out.pyg
+
+(./Template.out.pyg
 Overfull \hbox (143.71036pt too wide) in paragraph at lines 3--3
 | | | |[]|  
  []
 
-
+[86]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [82]
-[83]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [84])
+ [87])
 runsystem(pygmentize -l cpp -f latex -P commandprefix=PYG -F tokenmerge -P math
 escape=True -o "Template.out.pyg" "source//Graph Theory/Maximal Matching in Gen
 eral Graphs.cpp" )...executed.
 
 
-(./Template.out.pyg [85]
+(./Template.out.pyg [88]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [86])
+ [89])
 runsystem(pygmentize -l cpp -f latex -P commandprefix=PYG -F tokenmerge -P math
 escape=True -o "Template.out.pyg" "source//Graph Theory/Maximal Weighted Matchi
 ng in General Graphs.cpp" )...executed.
 
 
-(./Template.out.pyg [87]
+(./Template.out.pyg [90]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [88])
+ [91])
 runsystem(pygmentize -l cpp -f latex -P commandprefix=PYG -F tokenmerge -P math
 escape=True -o "Template.out.pyg" "source//Graph Theory/Maximum Cardinality Sea
 rch.cpp" )...executed.
 
 
-(./Template.out.pyg [89]) [90]
+(./Template.out.pyg [92]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [93])
 runsystem(pygmentize -l cpp -f latex -P commandprefix=PYG -F tokenmerge -P math
 escape=True -o "Template.out.pyg" "source//Graph Theory/Point Biconnected Compo
 nent.cpp" )...executed.
 
- (./Template.out.pyg [91]
+
+(./Template.out.pyg [94]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [92]
+ [95]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [93])
+ [96])
 runsystem(pygmentize -l cpp -f latex -P commandprefix=PYG -F tokenmerge -P math
 escape=True -o "Template.out.pyg" "source//Graph Theory/Steiner Tree.cpp" )...e
 xecuted.
 
 
-(./Template.out.pyg [94])
+(./Template.out.pyg [97])
 runsystem(pygmentize -l cpp -f latex -P commandprefix=PYG -F tokenmerge -P math
 escape=True -o "Template.out.pyg" "source//Graph Theory/Strongly Connected Comp
-onents.cpp" )...executed.
+onent.cpp" )...executed.
 
- (./Template.out.pyg)
+ (./Template.out.pyg [98])
 runsystem(pygmentize -l cpp -f latex -P commandprefix=PYG -F tokenmerge -P math
 escape=True -o "Template.out.pyg" "source//Graph Theory/Virtual Tree.cpp" )...e
 xecuted.
 
  (./Template.out.pyg
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [95]
-[96])
+[99])
 runsystem(pygmentize -l cpp -f latex -P commandprefix=PYG -F tokenmerge -P math
 escape=True -o "Template.out.pyg" "source//Graph Theory/Zhu-Liu Algorithm.cpp" 
 )...executed.
 
- (./Template.out.pyg [97])
+ (./Template.out.pyg [100]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [101])
 runsystem(pygmentize -l cpp -f latex -P commandprefix=PYG -F tokenmerge -P math
 escape=True -o "Template.out.pyg" "source//Graph Theory/ZKW Cost Flow.cpp" )...
 executed.
 
- (./Template.out.pyg [98]
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [99])
-[100]
+(./Template.out.pyg [102]) [103]
 Chapter 5.
 runsystem(pygmentize -l cpp -f latex -P commandprefix=PYG -F tokenmerge -P math
 escape=True -o "Template.out.pyg" "source//Number Theory/Baby Step Giant Step.c
@@ -2134,14 +2144,14 @@ runsystem(pygmentize -l cpp -f latex -P commandprefix=PYG -F tokenmerge -P math
 escape=True -o "Template.out.pyg" "source//Number Theory/Chinese Remainder Theo
 rem.cpp" )...executed.
 
- (./Template.out.pyg [101
+ (./Template.out.pyg [104
 
 ])
 runsystem(pygmentize -l cpp -f latex -P commandprefix=PYG -F tokenmerge -P math
 escape=True -o "Template.out.pyg" "source//Number Theory/Extended Euclidean Alg
 orithm.cpp" )...executed.
 
- (./Template.out.pyg [102])
+ (./Template.out.pyg [105])
 runsystem(pygmentize -l cpp -f latex -P commandprefix=PYG -F tokenmerge -P math
 escape=True -o "Template.out.pyg" "source//Number Theory/Linearly Sieve.cpp" ).
 ..executed.
@@ -2152,33 +2162,33 @@ runsystem(pygmentize -l cpp -f latex -P commandprefix=PYG -F tokenmerge -P math
 escape=True -o "Template.out.pyg" "source//Number Theory/N-Power Residue.cpp" )
 ...executed.
 
- (./Template.out.pyg [103])
+ (./Template.out.pyg [106])
 runsystem(pygmentize -l cpp -f latex -P commandprefix=PYG -F tokenmerge -P math
 escape=True -o "Template.out.pyg" "source//Number Theory/Number Theoretic Trans
 formation.cpp" )...executed.
 
- (./Template.out.pyg [104]
+ (./Template.out.pyg [107]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [105]
+ [108]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [106])
+ [109])
 runsystem(pygmentize -l cpp -f latex -P commandprefix=PYG -F tokenmerge -P math
 escape=True -o "Template.out.pyg" "source//Number Theory/Pollard Rho Algorithm.
 cpp" )...executed.
 
 
-(./Template.out.pyg [107]
+(./Template.out.pyg [110]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [108])
+ [111])
 runsystem(pygmentize -l cpp -f latex -P commandprefix=PYG -F tokenmerge -P math
 escape=True -o "Template.out.pyg" "source//Number Theory/Primitive Root.cpp" ).
 ..executed.
 
 
-(./Template.out.pyg [109])
+(./Template.out.pyg [112])
 runsystem(pygmentize -l cpp -f latex -P commandprefix=PYG -F tokenmerge -P math
 escape=True -o "Template.out.pyg" "source//Number Theory/Quadratic Residue.cpp"
  )...executed.
@@ -2188,19 +2198,19 @@ runsystem(pygmentize -l cpp -f latex -P commandprefix=PYG -F tokenmerge -P math
 escape=True -o "Template.out.pyg" "source//Number Theory/Single Variable Modulu
 s Linear Equation.cpp" )...executed.
 
- (./Template.out.pyg [110])
-[111]
+ (./Template.out.pyg [113])
+[114]
 Chapter 6.
 runsystem(pygmentize -l cpp -f latex -P commandprefix=PYG -F tokenmerge -P math
 escape=True -o "Template.out.pyg" "source//Numerical Algorithms/Counting Integr
-al Point under Straight Line.cpp" )...executed.
+al Points under Straight Line.cpp" )...executed.
 
 (./Template.out.pyg)
 runsystem(pygmentize -l cpp -f latex -P commandprefix=PYG -F tokenmerge -P math
 escape=True -o "Template.out.pyg" "source//Numerical Algorithms/Evaluation of E
 xpression.cpp" )...executed.
 
- (./Template.out.pyg [112
+ (./Template.out.pyg [115
 
 ])
 runsystem(pygmentize -l cpp -f latex -P commandprefix=PYG -F tokenmerge -P math
@@ -2210,13 +2220,13 @@ ansformation.cpp" )...executed.
  (./Template.out.pyg
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [113]
-[114]
+ [116]
+[117]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [115])
+ [118])
 runsystem(pygmentize -l cpp -f latex -P commandprefix=PYG -F tokenmerge -P math
-escape=True -o "Template.out.pyg" "source//Numerical Algorithms/Fast Input And 
+escape=True -o "Template.out.pyg" "source//Numerical Algorithms/Fast Input and 
 Output.cpp" )...executed.
 
 
@@ -2228,7 +2238,7 @@ cpp" )...executed.
  (./Template.out.pyg
 Underfull \vbox (badness 2111) has occurred while \output is active []
 
- [116])
+ [119])
 runsystem(pygmentize -l cpp -f latex -P commandprefix=PYG -F tokenmerge -P math
 escape=True -o "Template.out.pyg" "source//Numerical Algorithms/Gray Code.cpp" 
 )...executed.
@@ -2239,57 +2249,60 @@ runsystem(pygmentize -l cpp -f latex -P commandprefix=PYG -F tokenmerge -P math
 escape=True -o "Template.out.pyg" "source//Numerical Algorithms/Numerical Integ
 ration.cpp" )...executed.
 
- (./Template.out.pyg [117])
+ (./Template.out.pyg [120]) [121]
 runsystem(pygmentize -l cpp -f latex -P commandprefix=PYG -F tokenmerge -P math
 escape=True -o "Template.out.pyg" "source//Numerical Algorithms/Simplex.cpp" ).
 ..executed.
 
- (./Template.out.pyg [118])
+ (./Template.out.pyg
+[122])
 runsystem(pygmentize -l cpp -f latex -P commandprefix=PYG -F tokenmerge -P math
 escape=True -o "Template.out.pyg" "source//Numerical Algorithms/Solutions of Eq
 uation of Higher Order.cpp" )...executed.
 
-
-(./Template.out.pyg [119]) [120]
+ (./Template.out.pyg [123]) [124]
 Chapter 7.
 runsystem(pygmentize -l cpp -f latex -P commandprefix=PYG -F tokenmerge -P math
-escape=True -o "Template.out.pyg" "source//String Algorihtms/Aho-Corasick Autom
+escape=True -o "Template.out.pyg" "source//String Algorithms/Aho-Corasick Autom
 aton.cpp" )...executed.
 
-(./Template.out.pyg [121
+(./Template.out.pyg [125
 
 ])
 runsystem(pygmentize -l cpp -f latex -P commandprefix=PYG -F tokenmerge -P math
-escape=True -o "Template.out.pyg" "source//String Algorihtms/Knuth-Morris-Pratt
+escape=True -o "Template.out.pyg" "source//String Algorithms/Knuth-Morris-Pratt
  Algorithm.cpp" )...executed.
 
- (./Template.out.pyg [122])
+ (./Template.out.pyg)
 runsystem(pygmentize -l cpp -f latex -P commandprefix=PYG -F tokenmerge -P math
-escape=True -o "Template.out.pyg" "source//String Algorihtms/Manacher Algorithm
+escape=True -o "Template.out.pyg" "source//String Algorithms/Manacher Algorithm
 .cpp" )...executed.
 
- (./Template.out.pyg
-[123])
+ (./Template.out.pyg [126])
 runsystem(pygmentize -l cpp -f latex -P commandprefix=PYG -F tokenmerge -P math
-escape=True -o "Template.out.pyg" "source//String Algorihtms/Palindrome Automat
+escape=True -o "Template.out.pyg" "source//String Algorithms/Palindrome Automat
 on.cpp" )...executed.
 
- (./Template.out.pyg [124])
+
+(./Template.out.pyg [127])
 runsystem(pygmentize -l cpp -f latex -P commandprefix=PYG -F tokenmerge -P math
-escape=True -o "Template.out.pyg" "source//String Algorihtms/Suffix Array.cpp" 
+escape=True -o "Template.out.pyg" "source//String Algorithms/Suffix Array.cpp" 
 )...executed.
 
- (./Template.out.pyg [125])
+ (./Template.out.pyg)
 runsystem(pygmentize -l cpp -f latex -P commandprefix=PYG -F tokenmerge -P math
-escape=True -o "Template.out.pyg" "source//String Algorihtms/Suffix Automaton.c
+escape=True -o "Template.out.pyg" "source//String Algorithms/Suffix Automaton.c
 pp" )...executed.
 
+ (./Template.out.pyg [128]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-(./Template.out.pyg [126]) [127]
+ [129])
+[130]
 Chapter 8.
 runsystem(pygmentize -l cpp -f latex -P commandprefix=PYG -F tokenmerge -P math
-escape=True -o "Template.out.pyg" "source//Others/Calculate Date.cpp" )...execu
-ted.
+escape=True -o "Template.out.pyg" "source//Others/Calculation of Date.cpp" )...
+executed.
 
 (./Template.out.pyg)
 runsystem(pygmentize -l java -f latex -P commandprefix=PYG -F tokenmerge -P mat
@@ -2299,16 +2312,19 @@ d.
  (./Template.out.pyg
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [128
+ [131
 
 ]
-[129]
+[132]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [130]
+ [133]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [131])
+ [134]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [135])
 runsystem(pygmentize -l emacs -f latex -P commandprefix=PYG -F tokenmerge -P ma
 thescape=True -o "Template.out.pyg" "source//Others/Full.emacs" )...executed.
 
@@ -2318,7 +2334,10 @@ Overfull \hbox (783.29887pt too wide) in paragraph at lines 12--12
 []|  
  []
 
-[132]
+
+Underfull \vbox (badness 2111) has occurred while \output is active []
+
+ [136]
 Overfull \hbox (38.91905pt too wide) in paragraph at lines 59--59
 | | | |[]|  
  []
@@ -2326,10 +2345,10 @@ Overfull \hbox (38.91905pt too wide) in paragraph at lines 59--59
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [133]
+ [137]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [134])
+ [138])
 runsystem(pygmentize -l emacs -f latex -P commandprefix=PYG -F tokenmerge -P ma
 thescape=True -o "Template.out.pyg" "source//Others/Competition.emacs" )...exec
 uted.
@@ -2340,7 +2359,7 @@ Overfull \hbox (783.29887pt too wide) in paragraph at lines 12--12
 []|  
  []
 
-[135]
+[139]
 Overfull \hbox (38.91905pt too wide) in paragraph at lines 59--59
 | | | |[]|  
  []
@@ -2348,29 +2367,29 @@ Overfull \hbox (38.91905pt too wide) in paragraph at lines 59--59
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [136])
+ [140])
 runsystem(rm "Template.out.pyg")...executed.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 269.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 292.
 
-[137]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 269.
+[141]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 292.
  (./Template.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 269.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 269.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 292.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 292.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 269.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 292.
  ) 
 Here is how much of TeX's memory you used:
- 29652 strings out of 493638
- 562326 string characters out of 6146796
- 618364 words of memory out of 5000000
- 32545 multiletter control sequences out of 15000+600000
- 19865 words of font info for 111 fonts, out of 8000000 for 9000
+ 29655 strings out of 493638
+ 562391 string characters out of 6146796
+ 618862 words of memory out of 5000000
+ 32547 multiletter control sequences out of 15000+600000
+ 19873 words of font info for 112 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  65i,9n,77p,10431b,647s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Template.pdf (137 pages).
+Output written on Template.pdf (141 pages).

@@ -38,47 +38,51 @@
 \contentsline {section}{\numberline {4.6}Dominator Tree}{76}{section.4.6}
 \contentsline {section}{\numberline {4.7}Hungary}{80}{section.4.7}
 \contentsline {section}{\numberline {4.8}Isap Algorithm}{81}{section.4.8}
-\contentsline {section}{\numberline {4.9}Kuhn-Munkres Algorithm}{83}{section.4.9}
-\contentsline {section}{\numberline {4.10}Maximal Matching in General Graphs}{85}{section.4.10}
-\contentsline {section}{\numberline {4.11}Maximal Weighted Matching in General Graphs}{87}{section.4.11}
-\contentsline {section}{\numberline {4.12}Maximum Cardinality Search}{89}{section.4.12}
-\contentsline {section}{\numberline {4.13}Network Flow with Lower Bound}{90}{section.4.13}
-\contentsline {section}{\numberline {4.14}Point Biconnected Component}{91}{section.4.14}
-\contentsline {section}{\numberline {4.15}Steiner Tree}{94}{section.4.15}
-\contentsline {section}{\numberline {4.16}Strongly Connected Components}{95}{section.4.16}
-\contentsline {section}{\numberline {4.17}Virtual Tree}{96}{section.4.17}
-\contentsline {section}{\numberline {4.18}Zhu-Liu Algorithm}{97}{section.4.18}
-\contentsline {section}{\numberline {4.19}ZKW Cost Flow}{98}{section.4.19}
-\contentsline {chapter}{\numberline {5}Number Theory}{101}{chapter.5}
-\contentsline {section}{\numberline {5.1}Baby Step Giant Step}{101}{section.5.1}
-\contentsline {section}{\numberline {5.2}Chinese Remainder Theorem}{101}{section.5.2}
-\contentsline {section}{\numberline {5.3}Extended Euclidean Algorithm}{102}{section.5.3}
-\contentsline {section}{\numberline {5.4}Linearly Sieve}{103}{section.5.4}
-\contentsline {section}{\numberline {5.5}N-Power Residue}{103}{section.5.5}
-\contentsline {section}{\numberline {5.6}Number Theoretic Transformation}{104}{section.5.6}
-\contentsline {section}{\numberline {5.7}Pollard Rho}{107}{section.5.7}
-\contentsline {section}{\numberline {5.8}Primitive Root}{109}{section.5.8}
-\contentsline {section}{\numberline {5.9}Quadratic Residue}{110}{section.5.9}
-\contentsline {section}{\numberline {5.10}Single Variable Modulus Linear Equation}{110}{section.5.10}
-\contentsline {chapter}{\numberline {6}Numerical Algorithms}{112}{chapter.6}
-\contentsline {section}{\numberline {6.1}Counting Integral Point under Straight Line}{112}{section.6.1}
-\contentsline {section}{\numberline {6.2}Evaluation of Expression}{112}{section.6.2}
-\contentsline {section}{\numberline {6.3}Fast Fourier Transformation}{114}{section.6.3}
-\contentsline {section}{\numberline {6.4}Fast Input And Output}{116}{section.6.4}
-\contentsline {section}{\numberline {6.5}Fraction Class}{117}{section.6.5}
-\contentsline {section}{\numberline {6.6}Gray Code}{117}{section.6.6}
-\contentsline {section}{\numberline {6.7}Numerical Integration}{117}{section.6.7}
-\contentsline {section}{\numberline {6.8}Simplex}{118}{section.6.8}
-\contentsline {section}{\numberline {6.9}Solutions of Equation of Higher Order}{119}{section.6.9}
-\contentsline {chapter}{\numberline {7}String Algorithms}{121}{chapter.7}
-\contentsline {section}{\numberline {7.1}Aho-Corasick Automaton}{121}{section.7.1}
-\contentsline {section}{\numberline {7.2}Knuth-Morris-Pratt Algorithm}{122}{section.7.2}
-\contentsline {section}{\numberline {7.3}Manacher Algorithm}{123}{section.7.3}
-\contentsline {section}{\numberline {7.4}Palindrome Automaton}{124}{section.7.4}
-\contentsline {section}{\numberline {7.5}Suffix Array}{125}{section.7.5}
-\contentsline {section}{\numberline {7.6}Suffix Automaton}{126}{section.7.6}
-\contentsline {chapter}{\numberline {8}Others}{128}{chapter.8}
-\contentsline {section}{\numberline {8.1}Calculate Date}{128}{section.8.1}
-\contentsline {section}{\numberline {8.2}Java Hints}{129}{section.8.2}
-\contentsline {section}{\numberline {8.3}Emacs Configuration-Full}{132}{section.8.3}
-\contentsline {section}{\numberline {8.4}Emacs Configuration-Competition}{135}{section.8.4}
+\contentsline {section}{\numberline {4.9}Kuhn-Munkres Algorithm}{86}{section.4.9}
+\contentsline {section}{\numberline {4.10}Maximal Matching in General Graphs}{88}{section.4.10}
+\contentsline {section}{\numberline {4.11}Maximal Weighted Matching in General Graphs}{90}{section.4.11}
+\contentsline {section}{\numberline {4.12}Maximum Cardinality Search}{92}{section.4.12}
+\contentsline {section}{\numberline {4.13}Network Flow with Lower Bound}{94}{section.4.13}
+\contentsline {section}{\numberline {4.14}Point Biconnected Component}{94}{section.4.14}
+\contentsline {section}{\numberline {4.15}Steiner Tree}{97}{section.4.15}
+\contentsline {section}{\numberline {4.16}Strongly Connected Component}{98}{section.4.16}
+\contentsline {section}{\numberline {4.17}Virtual Tree}{99}{section.4.17}
+\contentsline {section}{\numberline {4.18}Zhu-Liu Algorithm}{100}{section.4.18}
+\contentsline {section}{\numberline {4.19}ZKW Cost Flow}{102}{section.4.19}
+\contentsline {chapter}{\numberline {5}Number Theory}{104}{chapter.5}
+\contentsline {section}{\numberline {5.1}Baby Step Giant Step}{104}{section.5.1}
+\contentsline {section}{\numberline {5.2}Chinese Remainder Theorem}{104}{section.5.2}
+\contentsline {section}{\numberline {5.3}Extended Euclidean Algorithm}{105}{section.5.3}
+\contentsline {section}{\numberline {5.4}Linearly Sieve}{106}{section.5.4}
+\contentsline {section}{\numberline {5.5}N-Power Residue}{106}{section.5.5}
+\contentsline {section}{\numberline {5.6}Number Theoretic Transformation}{107}{section.5.6}
+\contentsline {section}{\numberline {5.7}Pollard Rho Algorithm}{110}{section.5.7}
+\contentsline {section}{\numberline {5.8}Primitive Root}{112}{section.5.8}
+\contentsline {section}{\numberline {5.9}Quadratic Residue}{113}{section.5.9}
+\contentsline {section}{\numberline {5.10}Single Variable Modulus Linear Equation}{113}{section.5.10}
+\contentsline {chapter}{\numberline {6}Numerical Algorithms}{115}{chapter.6}
+\contentsline {section}{\numberline {6.1}Counting Integral Points under Straight Line}{115}{section.6.1}
+\contentsline {section}{\numberline {6.2}Evaluation of Expression}{115}{section.6.2}
+\contentsline {section}{\numberline {6.3}Fast Fourier Transformation}{117}{section.6.3}
+\contentsline {section}{\numberline {6.4}Fast Input and Output}{119}{section.6.4}
+\contentsline {section}{\numberline {6.5}Fraction Class}{120}{section.6.5}
+\contentsline {section}{\numberline {6.6}Gray Code}{120}{section.6.6}
+\contentsline {section}{\numberline {6.7}Numerical Integration}{120}{section.6.7}
+\contentsline {section}{\numberline {6.8}Simplex}{121}{section.6.8}
+\contentsline {subsection}{\numberline {6.8.1}Description}{121}{subsection.6.8.1}
+\contentsline {subsection}{\numberline {6.8.2}Input}{121}{subsection.6.8.2}
+\contentsline {subsection}{\numberline {6.8.3}Output}{121}{subsection.6.8.3}
+\contentsline {subsection}{\numberline {6.8.4}Code}{122}{subsection.6.8.4}
+\contentsline {section}{\numberline {6.9}Solutions of Equation of Higher Order}{123}{section.6.9}
+\contentsline {chapter}{\numberline {7}String Algorithms}{125}{chapter.7}
+\contentsline {section}{\numberline {7.1}Aho-Corasick Automaton}{125}{section.7.1}
+\contentsline {section}{\numberline {7.2}Knuth-Morris-Pratt Algorithm}{126}{section.7.2}
+\contentsline {section}{\numberline {7.3}Manacher Algorithm}{126}{section.7.3}
+\contentsline {section}{\numberline {7.4}Palindrome Automaton}{127}{section.7.4}
+\contentsline {section}{\numberline {7.5}Suffix Array}{128}{section.7.5}
+\contentsline {section}{\numberline {7.6}Suffix Automaton}{128}{section.7.6}
+\contentsline {chapter}{\numberline {8}Others}{131}{chapter.8}
+\contentsline {section}{\numberline {8.1}Calculation of Date}{131}{section.8.1}
+\contentsline {section}{\numberline {8.2}Java Hints}{132}{section.8.2}
+\contentsline {section}{\numberline {8.3}Emacs Configuration-Full}{136}{section.8.3}
+\contentsline {section}{\numberline {8.4}Emacs Configuration-Competition}{139}{section.8.4}

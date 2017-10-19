@@ -62,7 +62,7 @@
   ]{emacs}{source/#1}
 }
 
-\title{Code Library for lmxyy}
+\title{Code Library for Lmxyy}
 \author{Lmxyy \\ Shanghai Jiao Tong University}
 \date{\today}
 \begin{document}
@@ -179,6 +179,7 @@
   
   在``有源汇有上下界可行流''建图上，先判断是否存在可行流，若存在可行流，拆掉$Sink \rightarrow Source$的边后，用可行流减去在图中$Sink \rightarrow Source$增广的最大流即为最小流答案。
 \end{enumerate}
+
 在实现时，可以吧$SuperSource$连向同一节点的多条边合成一条（容量合并。从同一节点指向$SuperSink$的多条边也应合并。
 
 对于费用流，只需要改变将网络流算法改成费用流算法。对于原网络中的每一条边$u \rightarrow v$，上界$U$，下界$L$，费用$c$，将它拆分为三条边：
@@ -191,8 +192,8 @@
 \cppcode{/Graph Theory/Point Biconnected Component.cpp}
 \section{Steiner Tree}
 \cppcode{/Graph Theory/Steiner Tree.cpp}
-\section{Strongly Connected Components}
-\cppcode{/Graph Theory/Strongly Connected Components.cpp}
+\section{Strongly Connected Component}
+\cppcode{/Graph Theory/Strongly Connected Component.cpp}
 \section{Virtual Tree}
 \cppcode{/Graph Theory/Virtual Tree.cpp}
 \section{Zhu-Liu Algorithm}
@@ -213,7 +214,7 @@
 \cppcode{/Number Theory/N-Power Residue.cpp}
 \section{Number Theoretic Transformation}
 \cppcode{/Number Theory/Number Theoretic Transformation.cpp}
-\section{Pollard Rho}
+\section{Pollard Rho Algorithm}
 \cppcode{/Number Theory/Pollard Rho Algorithm.cpp}
 \section{Primitive Root}
 \cppcode{/Number Theory/Primitive Root.cpp}
@@ -223,14 +224,14 @@
 \cppcode{/Number Theory/Single Variable Modulus Linear Equation.cpp}
 
 \chapter{Numerical Algorithms}
-\section{Counting Integral Point under Straight Line}
-\cppcode{/Numerical Algorithms/Counting Integral Point under Straight Line.cpp}
+\section{Counting Integral Points under Straight Line}
+\cppcode{/Numerical Algorithms/Counting Integral Points under Straight Line.cpp}
 \section{Evaluation of Expression}
 \cppcode{/Numerical Algorithms/Evaluation of Expression.cpp}
 \section{Fast Fourier Transformation}
 \cppcode{/Numerical Algorithms/Fast Fourier Transformation.cpp}
-\section{Fast Input And Output}
-\cppcode{/Numerical Algorithms/Fast Input And Output.cpp}
+\section{Fast Input and Output}
+\cppcode{/Numerical Algorithms/Fast Input and Output.cpp}
 \section{Fraction Class}
 \cppcode{/Numerical Algorithms/Fraction Class.cpp}
 \section{Gray Code}
@@ -238,27 +239,49 @@
 \section{Numerical Integration}
 \cppcode{/Numerical Algorithms/Numerical Integration.cpp}
 \section{Simplex}
+\subsection{Description}
+有$n$个实数变量$x_1,x_2,\ldots,x_n$和$m$条约束，其中第$i$条约束形如 $\sum_{i = 1}^{n}a_{i,j}x_j \leq b_i$。
+
+此外这$n$个变量需要满足非负性限制，$x_j \geq 0$。
+
+在满足上述所有条件的情况下，你需要指定每个变量$x_j$的取值，使得目标函数$F = \sum_{j = 1}^{n}c_jx_j$的值最大。
+
+\subsection{Input}
+第一行三个正整数$n,m,t$。其中$t \in \{ 0,1 \}$。
+
+第二行有$n$个整数$c_1,c_2,\ldots,c_n$，整数间均用一个空格分隔。
+
+接下来$m$行，每行代表一条约束，其中第$i$行有$n+1$个整数$a_{i1},a_{i2},\ldots,a_{in},b_i$，整数间均用一个空格分隔。
+\subsection{Output}
+如果不存在满足所有约束的解，仅输出一行``Infeasible''。
+
+如果对于任意的$M$，都存在一组解使得目标函数的值大于$M$，仅输出一行``Unbounded''。
+
+否则，第一行输出一个实数，表示目标函数的最大值$F$。
+
+如果$t=1$，那么你还需要输出第二行，用空格隔开的$n$个非负实数，表示此时$x_1,x_2,\ldots,x_n$的取值，如有多组方案请任意输出其中一个。
+\subsection{Code}
 \cppcode{/Numerical Algorithms/Simplex.cpp}
 \section{Solutions of Equation of Higher Order}
 \cppcode{/Numerical Algorithms/Solutions of Equation of Higher Order.cpp}
 
 \chapter{String Algorithms}
 \section{Aho-Corasick Automaton}
-\cppcode{/String Algorihtms/Aho-Corasick Automaton.cpp}
+\cppcode{/String Algorithms/Aho-Corasick Automaton.cpp}
 \section{Knuth-Morris-Pratt Algorithm}
-\cppcode{/String Algorihtms/Knuth-Morris-Pratt Algorithm.cpp}
+\cppcode{/String Algorithms/Knuth-Morris-Pratt Algorithm.cpp}
 \section{Manacher Algorithm}
-\cppcode{/String Algorihtms/Manacher Algorithm.cpp}
+\cppcode{/String Algorithms/Manacher Algorithm.cpp}
 \section{Palindrome Automaton}
-\cppcode{/String Algorihtms/Palindrome Automaton.cpp}
+\cppcode{/String Algorithms/Palindrome Automaton.cpp}
 \section{Suffix Array}
-\cppcode{/String Algorihtms/Suffix Array.cpp}
+\cppcode{/String Algorithms/Suffix Array.cpp}
 \section{Suffix Automaton}
-\cppcode{/String Algorihtms/Suffix Automaton.cpp}
+\cppcode{/String Algorithms/Suffix Automaton.cpp}
 
 \chapter{Others}
-\section{Calculate Date}
-\cppcode{/Others/Calculate Date.cpp}
+\section{Calculation of Date}
+\cppcode{/Others/Calculation of Date.cpp}
 \section{Java Hints}
 \javacode{/Others/Java Hints.java}
 \section{Emacs Configuration-Full}

@@ -1,4 +1,4 @@
-//ac自动机
+// ac自动机
 inline int newnode()
 {
 	memset(nxt[L],-1,sizeof(nxt[L]));
