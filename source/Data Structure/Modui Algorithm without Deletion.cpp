@@ -1,4 +1,5 @@
 // r单调右移，l只会在sqrt(N)中移动，保证每次undo的复杂度可行即可。
+// CodeForces 620F
 #include<vector>
 #include<algorithm>
 #include<cstring>
