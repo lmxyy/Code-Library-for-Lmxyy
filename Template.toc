@@ -1,0 +1,84 @@
+\contentsline {chapter}{\numberline {1}Algorithms}{5}{chapter.1}
+\contentsline {section}{\numberline {1.1}1D1D Dynamic Programming}{5}{section.1.1}
+\contentsline {section}{\numberline {1.2}Dynamic Minimal Spanning Tree}{7}{section.1.2}
+\contentsline {section}{\numberline {1.3}Slop Optimization}{10}{section.1.3}
+\contentsline {section}{\numberline {1.4}Three-dimension Partial Order}{11}{section.1.4}
+\contentsline {chapter}{\numberline {2}Computational Geometry}{13}{chapter.2}
+\contentsline {section}{\numberline {2.1}Circle Intersection}{13}{section.2.1}
+\contentsline {section}{\numberline {2.2}Common Formulas}{17}{section.2.2}
+\contentsline {section}{\numberline {2.3}Convex Hull}{18}{section.2.3}
+\contentsline {section}{\numberline {2.4}Cross Points of Circles}{20}{section.2.4}
+\contentsline {section}{\numberline {2.5}Cross Points of Line and Circle}{20}{section.2.5}
+\contentsline {section}{\numberline {2.6}Graham Scanning Algorithm}{20}{section.2.6}
+\contentsline {section}{\numberline {2.7}Half Plane Intersection}{23}{section.2.7}
+\contentsline {section}{\numberline {2.8}Intersecting Area of Circle and Polygon}{24}{section.2.8}
+\contentsline {section}{\numberline {2.9}Intersection of Line and Convex Hull}{26}{section.2.9}
+\contentsline {section}{\numberline {2.10}Minimal Product}{27}{section.2.10}
+\contentsline {section}{\numberline {2.11}Planar Graph}{29}{section.2.11}
+\contentsline {section}{\numberline {2.12}Polygon Class}{35}{section.2.12}
+\contentsline {section}{\numberline {2.13}Union Area of Circles}{36}{section.2.13}
+\contentsline {chapter}{\numberline {3}Data Structure}{40}{chapter.3}
+\contentsline {section}{\numberline {3.1}Divide and Conquer on Tree}{40}{section.3.1}
+\contentsline {section}{\numberline {3.2}Dynamicly Divide and Conquer on Tree}{41}{section.3.2}
+\contentsline {section}{\numberline {3.3}Heavy Path Decomposition}{45}{section.3.3}
+\contentsline {section}{\numberline {3.4}K-Dimension Tree}{47}{section.3.4}
+\contentsline {section}{\numberline {3.5}Leftlist Tree}{50}{section.3.5}
+\contentsline {section}{\numberline {3.6}Link Cut Tree}{51}{section.3.6}
+\contentsline {section}{\numberline {3.7}Merge Split Treap}{55}{section.3.7}
+\contentsline {section}{\numberline {3.8}Modui Algorithm on Tree}{57}{section.3.8}
+\contentsline {section}{\numberline {3.9}Modui Algorithm without Deletion}{59}{section.3.9}
+\contentsline {section}{\numberline {3.10}President Tree}{62}{section.3.10}
+\contentsline {section}{\numberline {3.11}Splay}{63}{section.3.11}
+\contentsline {chapter}{\numberline {4}Graph Theory}{70}{chapter.4}
+\contentsline {section}{\numberline {4.1}2-Sat}{70}{section.4.1}
+\contentsline {section}{\numberline {4.2}Bridges and Cut Vertices}{71}{section.4.2}
+\contentsline {section}{\numberline {4.3}Cost Flow}{72}{section.4.3}
+\contentsline {section}{\numberline {4.4}Difference Constraints}{73}{section.4.4}
+\contentsline {section}{\numberline {4.5}Dinic Algorithm}{75}{section.4.5}
+\contentsline {section}{\numberline {4.6}Dominator Tree}{76}{section.4.6}
+\contentsline {section}{\numberline {4.7}Hungary}{80}{section.4.7}
+\contentsline {section}{\numberline {4.8}Isap Algorithm}{81}{section.4.8}
+\contentsline {section}{\numberline {4.9}Kuhn-Munkres Algorithm}{83}{section.4.9}
+\contentsline {section}{\numberline {4.10}Maximal Matching in General Graphs}{85}{section.4.10}
+\contentsline {section}{\numberline {4.11}Maximal Weighted Matching in General Graphs}{87}{section.4.11}
+\contentsline {section}{\numberline {4.12}Maximum Cardinality Search}{89}{section.4.12}
+\contentsline {section}{\numberline {4.13}Network Flow with Lower Bound}{90}{section.4.13}
+\contentsline {section}{\numberline {4.14}Point Biconnected Component}{91}{section.4.14}
+\contentsline {section}{\numberline {4.15}Steiner Tree}{94}{section.4.15}
+\contentsline {section}{\numberline {4.16}Strongly Connected Components}{95}{section.4.16}
+\contentsline {section}{\numberline {4.17}Virtual Tree}{96}{section.4.17}
+\contentsline {section}{\numberline {4.18}Zhu-Liu Algorithm}{97}{section.4.18}
+\contentsline {section}{\numberline {4.19}ZKW Cost Flow}{98}{section.4.19}
+\contentsline {chapter}{\numberline {5}Number Theory}{101}{chapter.5}
+\contentsline {section}{\numberline {5.1}Baby Step Giant Step}{101}{section.5.1}
+\contentsline {section}{\numberline {5.2}Chinese Remainder Theorem}{101}{section.5.2}
+\contentsline {section}{\numberline {5.3}Extended Euclidean Algorithm}{102}{section.5.3}
+\contentsline {section}{\numberline {5.4}Linearly Sieve}{103}{section.5.4}
+\contentsline {section}{\numberline {5.5}N-Power Residue}{103}{section.5.5}
+\contentsline {section}{\numberline {5.6}Number Theoretic Transformation}{104}{section.5.6}
+\contentsline {section}{\numberline {5.7}Pollard Rho}{107}{section.5.7}
+\contentsline {section}{\numberline {5.8}Primitive Root}{109}{section.5.8}
+\contentsline {section}{\numberline {5.9}Quadratic Residue}{110}{section.5.9}
+\contentsline {section}{\numberline {5.10}Single Variable Modulus Linear Equation}{110}{section.5.10}
+\contentsline {chapter}{\numberline {6}Numerical Algorithms}{112}{chapter.6}
+\contentsline {section}{\numberline {6.1}Counting Integral Point under Straight Line}{112}{section.6.1}
+\contentsline {section}{\numberline {6.2}Evaluation of Expression}{112}{section.6.2}
+\contentsline {section}{\numberline {6.3}Fast Fourier Transformation}{114}{section.6.3}
+\contentsline {section}{\numberline {6.4}Fast Input And Output}{116}{section.6.4}
+\contentsline {section}{\numberline {6.5}Fraction Class}{117}{section.6.5}
+\contentsline {section}{\numberline {6.6}Gray Code}{117}{section.6.6}
+\contentsline {section}{\numberline {6.7}Numerical Integration}{117}{section.6.7}
+\contentsline {section}{\numberline {6.8}Simplex}{118}{section.6.8}
+\contentsline {section}{\numberline {6.9}Solutions of Equation of Higher Order}{119}{section.6.9}
+\contentsline {chapter}{\numberline {7}String Algorithms}{121}{chapter.7}
+\contentsline {section}{\numberline {7.1}Aho-Corasick Automaton}{121}{section.7.1}
+\contentsline {section}{\numberline {7.2}Knuth-Morris-Pratt Algorithm}{122}{section.7.2}
+\contentsline {section}{\numberline {7.3}Manacher Algorithm}{123}{section.7.3}
+\contentsline {section}{\numberline {7.4}Palindrome Automaton}{124}{section.7.4}
+\contentsline {section}{\numberline {7.5}Suffix Array}{125}{section.7.5}
+\contentsline {section}{\numberline {7.6}Suffix Automaton}{126}{section.7.6}
+\contentsline {chapter}{\numberline {8}Others}{128}{chapter.8}
+\contentsline {section}{\numberline {8.1}Calculate Date}{128}{section.8.1}
+\contentsline {section}{\numberline {8.2}Java Hints}{129}{section.8.2}
+\contentsline {section}{\numberline {8.3}Emacs Configuration-Full}{132}{section.8.3}
+\contentsline {section}{\numberline {8.4}Emacs Configuration-Competition}{135}{section.8.4}
