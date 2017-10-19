@@ -1,3 +1,4 @@
+// bzoj 1823
 #include<stack>
 #include<iostream>
 #include<cstring>

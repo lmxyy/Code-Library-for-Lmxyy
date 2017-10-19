@@ -1,3 +1,4 @@
+// BZOJ 1006
 #include<algorithm>
 #include<queue>
 #include<cstdio>
