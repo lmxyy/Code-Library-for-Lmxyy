@@ -1,3 +1,4 @@
+// noi2009 诗人小G
 #include<cstring>
 #include<cstdio>
 #include<cstdlib>
