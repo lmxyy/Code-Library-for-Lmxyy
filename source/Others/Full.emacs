@@ -7,6 +7,7 @@
 ;; 修改透明度
 (set-frame-parameter (selected-frame) 'alpha (list 78 78))
 (add-to-list 'default-frame-alist (cons 'alpha (list 78 78)))
+;; set the cursor
 (setq-default cursor-type 'bar)
 ;; comment-dwim
 (defun strong-comment-dwim-line (&optional arg)
@@ -83,6 +84,7 @@
 ;; 设置tab为4个空格的宽度
 (setq c-basic-offset 4)
 (setq default-tab-width 4)
+
 ;; --------------------Java Mode--------------------
 ;; 设置编译信息
 (defun compile-java ()
@@ -92,12 +94,18 @@
 
 ;; --------------------Org Mode--------------------
 (setq org-startup-indented t)
+;; The following lines are always needed. Choose your own keys.
+(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
+(add-hook 'org-mode-hook 'turn-on-font-lock) ; not needed when global-font-lock-mode is on
+(global-set-key "\C-cl" 'org-store-link)
+(global-set-key "\C-ca" 'org-agenda)
+(global-set-key "\C-cb" 'org-iswitchb)
 
 ;; --------------------Ido Mode--------------------
 ;; 启用ido模式
 (ido-mode t)
 
-;; --------------------Custom Sets--------------------
+;; --------------------Custon Sets--------------------
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
