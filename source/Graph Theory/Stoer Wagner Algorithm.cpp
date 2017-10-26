@@ -1,4 +1,4 @@
-int G[maxn][maxn],node[maxn],dis[maxn]; bool vis[maxn],visit[maxn];
+int G[maxn][maxn],node[maxn],dis[maxn]; bool visit[maxn];
 
 inline int solve(int n)
 {
