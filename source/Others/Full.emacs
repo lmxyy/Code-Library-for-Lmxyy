@@ -100,6 +100,11 @@
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cb" 'org-iswitchb)
+;; Auto-line-breaking
+;; 这一句定义一个函数
+(defun my-org-mode()  (setq truncate-lines nil))
+;; 把这个函数加入到`org-mode-hook'中，这样每次打开org文件时都会先执行这个函数
+(add-hook 'org-mode-hook 'my-org-mode)
 
 ;; --------------------Ido Mode--------------------
 ;; 启用ido模式
