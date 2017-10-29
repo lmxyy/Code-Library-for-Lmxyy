@@ -1,7 +1,7 @@
 ;;--------------------General--------------------
 (global-set-key (kbd "M-n") 'forward-paragraph)
 (global-set-key (kbd "M-p") 'backward-paragraph)
-(global-set-key (kbd "<f12>") 'print-buffer)
+(global-set-key (kbd "<C-f12>") 'print-buffer)
 (global-set-key (kbd "C-`") 'set-mark-command)
 (global-set-key (kbd "<f5>") 'eshell)
 ;; 修改透明度
@@ -109,6 +109,14 @@
 ;; --------------------Ido Mode--------------------
 ;; 启用ido模式
 (ido-mode t)
+
+;; --------------------Verilog Mode--------------------
+;; 设置编译信息
+(defun compile-verilog ()
+  (interactive)
+  (compile (format "iverilog -o %s %s"  (file-name-sans-extension (buffer-name))(buffer-name))))
+(global-set-key (kbd "<f12>") 'compile-verilog)
+
 
 ;; --------------------Custon Sets--------------------
 (custom-set-variables
