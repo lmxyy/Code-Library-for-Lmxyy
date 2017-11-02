@@ -59,3 +59,22 @@ inline Point CrossPoint(const Line &a,const Line &b)  //直线交点
 }
 
 inline bool parallel(const Line &a,const Line &b) { return !dcmp(a.v/b.v); } //直线平行
+
+inline Point rotate(const Point &p,double cost,double sint)
+{
+	double x = p.x,y = p.y;
+	return Point(x*cost-y*sint,x*sint+y*cost);
+}
+
+inline Point reflect(const Point &a,const Line &l)
+{
+	Point p = l.p,v = l.v; v = v.unit();
+	return (2*v*(a-p))*v-(a-p)+p;
+}
+
+inline void TangentPoint(const Point &c1,double r2,const Point &c1,double r2) //两圆严格相离,求的是外切
+{
+	Point v = c1-c2; double len = v.norm(); v = v/len;
+	double cost = (r2-r1)/len,sint = mysqrt(1-cost*cost);
+	// 两对切点{c1+r1*rotate(v,cost,sint),c2+r2*rotate(v,cost,sint)},{c1+r1*rotate(v,cost,-sint),c2+r2*rotate(v,cost,-sint)}
+}
