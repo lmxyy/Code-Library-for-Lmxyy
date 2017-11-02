@@ -1,0 +1,69 @@
+\documentclass[11pt]{article}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{latexsym}
+\usepackage{multirow}
+\usepackage{amssymb}
+% \usepackage{xeCJK}
+\usepackage{tabularx}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{supertabular}
+\usepackage{multirow}
+\usepackage{indentfirst}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{courier}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+\usepackage{fancybox}
+\usepackage{amsmath,amsfonts,amssymb,graphicx}
+\usepackage{subfigure}
+\usepackage{bm}
+\usepackage{multicol}
+\usepackage{abstract}
+\usepackage{mathrsfs}
+\usepackage{pdfpages}
+
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
+% \setCJKmainfont{SimSun}
+\setlength{\parindent}{2em}
+\tolerance=1000
+\lstset{language=C++}%这条命令可以让LaTeX排版时将C++键字突出显示
+\lstset{breaklines}%这条命令可以让LaTeX自动将长的代码行换行排版
+\lstset{extendedchars=false}%这一条命令可以解决代码跨页时，章节\题，页眉等汉字不显示的问题
+\lstset{
+         basicstyle=\scriptsize\ttfamily{}, % Standardschrift
+         numbers=left,               % Ort der Zeilennummern
+         numberstyle=\tiny,          % Stil der Zeilennummern
+         %stepnumber=5,               % Abstand zwischen den Zeilennummern
+         numbersep=10pt,              % Abstand der Nummern zum Text
+         tabsize=4,                  % Groesse von Tabs
+         %extendedchars=true,         %
+         breaklines=true,            % Zeilen werden Umgebrochen
+         keywordstyle=\color{red},
+         stringstyle=\color{white}\ttfamily, % Farbe der String
+         showspaces=false,           % Leerzeichen anzeigen ?
+         showtabs=false,             % Tabs anzeigen ?
+         xleftmargin=17pt,
+         framexleftmargin=17pt,
+         framexrightmargin=5pt,
+         framexbottommargin=0pt,
+         backgroundcolor=\color{lightgray},
+         showstringspaces=false      % Leerzeichen in Strings anzeigen ?
+}
+\providecommand{\alert}[1]{\textbf{#1}}
+
+\title{template}
+\author{LMY}
+\date{\today}
+
+\begin{document}
+\maketitle
+\newpage
+\section{a}
+\subsection{b}
+\includepdf{BigDecimal Class.pdf}
+\end{document}
+

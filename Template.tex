@@ -15,6 +15,7 @@
 \usepackage{enumerate}
 \usepackage{indentfirst}
 \usepackage{yfonts}
+\usepackage{pdfpages}
 
 \usepackage[cache=false]{minted}
 
@@ -64,7 +65,7 @@
   ]{emacs}{Source/#1}
 }
 
-\title{\Huge\textgoth{Code Library for Lmxyy}}
+\title{\Huge\textgoth{Code Library for Lmxyy\thanks{https://github.com/lmxyy/Code-Library-for-Lmxyy} \\Version 2.0}}
 \author{Lmxyy \\ \emph{Shanghai Jiao Tong University}}
 \date{\today}
 \begin{document}
@@ -292,9 +293,28 @@
 \section{Calculation of Date}
 \cppcode{/Others/Calculation of Date.cpp}
 \section{Java Hints}
-\javacode{/Others/Java Hints.java}
-% \section{Emacs Configuration-Full}
-% \emacscode{/Others/Full.emacs}
+\subsection{Code Example}
+\javacode{/Others/Java Hints/Code.java}
+\subsection{Class Reference}
+\subsubsection{BigDecimal Class}
+\includepdf[scale = 0.8,pages=1-7,pagecommand = {}]{BigDecimal-Class.pdf}
+\newpage
+% \subsubsection{BigInteger Class}
+\includepdf[scale = 0.8,pages=1,pagecommand = \subsubsection{BigInteger Class}]{BigInteger-Class.pdf}
+\includepdf[scale = 0.8,pages=2-4,pagecommand = {}]{BigInteger-Class.pdf}
+\newpage
+% \subsubsection{MathContext Class}
+\includepdf[scale = 0.8,pages=1,pagecommand = \subsubsection{MathContext Class}]{MathContext-Class.pdf}
+\includepdf[scale = 0.8,pages=2-5,pagecommand = {}]{MathContext-Class.pdf}
+\newpage
+% \subsubsection{RoundingMode Class}
+\includepdf[scale = 0.8,pages=1,pagecommand = \subsubsection{RoundingMode Class}]{RoundingMode-Class.pdf}
+\includepdf[scale = 0.8,pages=2-7,pagecommand = {}]{RoundingMode-Class.pdf}
+\newpage
+% \subsubsection{String Class}
+\includepdf[scale = 0.8,pages=1,pagecommand = \subsubsection{String-Class}]{String-Class.pdf}
+\includepdf[scale = 0.8,pages=2-5,pagecommand = {}]{String-Class.pdf}
+\newpage
 \section{Emacs Configuration-Competition}
 \emacscode{/Others/Competition.emacs}
 
