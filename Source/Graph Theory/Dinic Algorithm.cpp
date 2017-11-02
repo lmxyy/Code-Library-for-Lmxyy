@@ -1,6 +1,6 @@
 // dinic
 int source,sink,cnt = 1;
-int d[maxv],side[maxv],cur[maxv],side[maxe],nxt[maxe],toit[maxe],cap[maxe]; bool in[maxv];
+int d[maxv],side[maxv],cur[maxv],nxt[maxe],toit[maxe],cap[maxe]; bool in[maxv];
 
 inline void add(int a,int b,int c) { nxt[++cnt] = side[a]; side[a] = cnt; toit[cnt] = b; cap[cnt] = c; }
 inline void ins(int a,int b,int c) { add(a,b,c); add(b,a,0); }

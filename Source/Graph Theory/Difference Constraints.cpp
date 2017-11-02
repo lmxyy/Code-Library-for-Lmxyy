@@ -1,3 +1,28 @@
+// DFS判负环,相当于用栈跑SPFA,只判负环比队列快
+inline bool SPFA(int n,int source)
+{  
+    for(int i = 1;i <= n; i++)
+		dis[i] = inf,vis[i] = false,arr[i] = 0;  
+    arr[source] = 1; dis[source] = 0; vis[source] = true;  
+	stack <int> stk; stk.push(source);
+	while(!stk.empty())
+	{  
+		int now = stk.top(); stk.pop(); vis[now] = false;
+		for (int i = side[now];i;i = nxt[i])
+			if (dis[toit[i]] > dis[now]+len[i])
+			{
+				dis[toit[i]] = dis[now]+len[i];
+				if (!vis[toit[i]])
+				{
+					if (++arr[toit[i]] > N) return false;
+					vis[toit[i]] = true;
+					team.push(toit[i]);
+				}
+			}
+    }  
+    return true;  
+}
+
 // bzoj2330
 #include<iostream>
 #include<stack>
