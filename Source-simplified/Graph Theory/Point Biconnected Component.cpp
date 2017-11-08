@@ -1,12 +1,4 @@
 // Source: HackerRank - bonnie-and-clyde
-#include<algorithm>
-#include<vector>
-#include<stack>
-#include<iostream>
-#include<cstdio>
-#include<cstdlib>
-using namespace std;
-
 const int maxn = 400010;
 int N,M,Q,cnt = 1,side[maxn],toit[maxn],nxt[maxn],f[maxn][25],father[maxn],low[maxn];
 int tot,dep[maxn],dfn[maxn],nside[maxn],ntoit[maxn],nnxt[maxn]; bool cut[maxn];
@@ -18,15 +10,6 @@ inline void add(int a,int b) { nxt[++cnt] = side[a]; side[a] = cnt; toit[cnt] = 
 inline void ins(int a,int b) { add(a,b); add(b,a); }
 inline void nadd(int a,int b) { nnxt[++cnt] = nside[a]; nside[a] = cnt; ntoit[cnt] = b; }
 inline void nins(int a,int b) { nadd(a,b); nadd(b,a); }
-
-inline int gi()
-{
-	char ch; int ret = 0,f = 1;
-	do ch = getchar(); while (!(ch >= '0'&&ch <= '9')&&ch != '-');
-	if (ch == '-') f = -1,ch = getchar();
-	do ret = ret*10+ch-'0',ch = getchar(); while (ch >= '0'&&ch <= '9');
-	return ret*f;
-}
 
 inline void tj(int now,int fa)
 {
@@ -73,30 +56,6 @@ inline void build()
 	}
 }
 
-inline void dfs(int now)
-{
-	vis[now] = true;
-	for (int i = 1;(1<<i) <= dep[now];++i) f[now][i] = f[f[now][i-1]][i-1];
-	for (int i = nside[now];i;i = nnxt[i])
-	{
-		if (vis[ntoit[i]]) continue; f[ntoit[i]][0] = now;
-		dep[ntoit[i]] = dep[now]+1; dfs(ntoit[i]);
-	}
-}
-
-inline int jump(int a,int b) { for (int i = 0;b;++i,b >>= 1) if (b&1) a = f[a][i]; return a; }
-inline int lca(int a,int b)
-{
-	if (dep[a] < dep[b]) swap(a,b);
-	a = jump(a,dep[a]-dep[b]); if (a == b) return a;
-	for (int i = 0;i >= 0;)
-	{
-		if (f[a][i] != f[b][i]) a = f[a][i],b = f[b][i],++i;
-		else --i;
-	}
-	return f[a][0];
-}
-
 inline bool check(int u,int v,int w)
 {
 	if (find(u) != find(v)||find(v) != find(w)) return false;
@@ -121,8 +80,6 @@ inline bool check(int u,int v,int w)
 
 int main()
 {
-	freopen("J.in","r",stdin);
-	freopen("J.out","w",stdout);
 	N = gi(); M = gi(); Q = gi();
 	for (int i = 1;i <= N;++i) father[i] = i;
 	for (int i = 1,a,b;i <= M;++i)

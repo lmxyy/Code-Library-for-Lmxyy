@@ -1,21 +1,21 @@
 inline int find(int x)
 {
     for (int i = 1;i <= n;++i)
-        if (f[x][i]&&!used[i])
+        if (w[x][i]&&!used[i])
         {
             used[i] = true;
-            if (!cho[i]||find(cho[i])) { cho[i] = x; return true; }
+            if (!from[i]||match(from[i])) { from[i] = x; return true; }
         }
     return false;
 }
 
 inline int hungry()
 {
-    int ret = 0;
+    int ret = 0; memset(from,-1,sizeof from);
     for (int i = 1;i <= n;++i)
     {
         memset(used,false,sizeof(used));
-        if (find(i)) ret++;
+        if (match(i)) ret++;
     }
     return ret;
 }

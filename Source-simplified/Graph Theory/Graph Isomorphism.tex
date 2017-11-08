@@ -1,0 +1,12 @@
+\documentclass[11pt]{article}
+\usepackage{xeCJK}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{enumerate}
+
+\begin{document}
+\section{Graph Isomorphism}
+哈希函数：
+$$F_t(i) = \left(F_{t-1}(i) \times A + \sum_{i \to j}F_{t-1}(j) \times B + \sum_{j \to i}F_{t-1}(j) \times C + D \times (i==a) \right) \bmod P$$
+其中$K,A,B,C,D,P$为自选参数。两个图同构当且仅当$F_K(i)$值一样。
+\end{document}
