@@ -1,3 +1,4 @@
+// --------------------Point--------------------
 struct Point
 {
 	inline Point() = default;
@@ -36,7 +37,7 @@ inline Point rotate(const Point &a,const Point &b,double angle)
 	double y = x1*sin(angle)-y1*cos(angle);
 	return e1*x+e2*y+p;
 }
-
+// --------------------Line--------------------
 struct Line
 {
 	Point a,b; //直线上两点
@@ -46,3 +47,4 @@ struct Line
 
 // 两点直线同侧，异侧改为<-eps
 inline bool SameSide(const Point &p1,const Point &p2,const Line &l) { return dcmp(((l.a-l.b)/(p1-l.b))*((l.a-l.b)/(p2-l.b))) > 0; }
+
