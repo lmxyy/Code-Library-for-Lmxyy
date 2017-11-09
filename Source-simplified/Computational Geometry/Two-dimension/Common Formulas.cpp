@@ -2,8 +2,6 @@
 struct Point
 {
     double x,y;
-	inline Point() = default;
-	inline Point(double _x,double _y):x(_x),y(_y) {}
 	inline Point reflect(const Point &p) const
 	{
 		Point v = *this-p; double len = v.norm();

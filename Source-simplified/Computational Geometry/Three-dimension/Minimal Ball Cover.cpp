@@ -1,9 +1,3 @@
-#include <iostream>  
-#include<cstdio>  
-#include<algorithm>  
-#include<cstring>  
-#include<cmath>  
-using namespace std;  
 const double eps=1e-7;  
 struct point3D  
 {  
@@ -34,8 +28,8 @@ double solve()
     return ans;  
 }  
 int main()  
-{ // freopen("t.txt","r",stdin);
-    double ans;  
+{
+	double ans;  
     while(~scanf("%d",&n),n)  
     {  
         for(int i=0; i<n; i++)  

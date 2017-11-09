@@ -1,21 +1,7 @@
-#include <iostream>
-#include <cstdio>
-#include <cstring>
-#include <algorithm>
-#include <cmath>
-#include <vector>
-using namespace std;
-typedef long long ll;
 const int N=2005;
 const double INF=1e9;
 const double eps=1e-8;
 const double pi=acos(-1);
-inline int read(){
-    char c=getchar();int x=0,f=1;
-    while(c<'0'||c>'9'){if(c=='-')f=-1; c=getchar();}
-    while(c>='0'&&c<='9'){x=x*10+c-'0'; c=getchar();}
-    return x*f;
-}
 
 inline int sgn(double x){
     if(abs(x)<eps) return 0;
@@ -91,7 +77,7 @@ int n;
 Point p[N],c;
 int main(int argc, const char * argv[]){
     while(true){
-        n=read();if(n==0) break;
+        n=gi();if(n==0) break;
         for(int i=1;i<=n;i++) scanf("%lf%lf",&p[i].x,&p[i].y);
         double r=minCircleCover(p,n,c);
         printf("%.2f %.2f %.2f\n",c.x,c.y,r);
