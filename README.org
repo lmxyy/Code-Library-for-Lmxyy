@@ -13,27 +13,27 @@ As Lmxyy has retired, he wants to leave something to his junior schoolmates, so 
 - [ ] Plug-like Dynamic Programming
 - [ ] Slop Optimization
 - [ ] Three-dimension Partial Order
-*** TODO Computational Geometry [%]
-**** TODO Three-dimension [%]
-- [ ] Common Formulas
-- [ ] Convex Hull
-- [ ] Minimal Ball Cover
-- [ ] Volume of Tetrahedron
-**** TODO Two-dimension [0%]
-- [ ] Circle Intersection
-- [ ] Common Formulas
-- [ ] Convex Hull
-- [ ] Cross Points of Circles
-- [ ] Cross Points of Line and Circle
-- [ ] Graham Scanning Algorithm
-- [ ] Half Plane Intersection
-- [ ] Intersecting Area of Circle and Polygon
-- [ ] Intersection of Line and Convex Hull
-- [ ] Minimal Circle Cover
-- [ ] Minimal Product
-- [ ] Planar Graph
-- [ ] Polygon Class
-- [ ] Union Area of Circles
+*** TODO Computational Geometry [0%]
+- [ ] Three-dimension [0%]
+  - [ ] Common Formulas
+  - [ ] Convex Hull
+  - [ ] Minimal Ball Cover
+  - [ ] Volume of Tetrahedron
+- [ ] Two-dimension [0%]
+  - [ ] Circle Intersection
+  - [ ] Common Formulas
+  - [ ] Convex Hull
+  - [ ] Cross Points of Circles
+  - [ ] Cross Points of Line and Circle
+  - [ ] Graham Scanning Algorithm
+  - [ ] Half Plane Intersection
+  - [ ] Intersecting Area of Circle and Polygon
+  - [ ] Intersection of Line and Convex Hull
+  - [ ] Minimal Circle Cover
+  - [ ] Minimal Product
+  - [ ] Planar Graph
+  - [ ] Polygon Class
+  - [ ] Union Area of Circles
 *** TODO Data Structure [0%]
 - [ ] Divide and Conquer on Tree
 - [ ] Dynamicly Divide and Conquer on Tree
@@ -46,7 +46,7 @@ As Lmxyy has retired, he wants to leave something to his junior schoolmates, so 
 - [ ] Modui Algorithm without Deletion
 - [ ] President Tree
 - [ ] Splay
-*** TODO Graph Theory [%]
+*** TODO Graph Theory [0%]
 - [ ] 2-Sat
 - [ ] Bridges and Cut Vertices
 - [ ] Cost Flow
@@ -89,7 +89,7 @@ As Lmxyy has retired, he wants to leave something to his junior schoolmates, so 
 - [ ] Numerical Integration
 - [ ] Simplex
 - [ ] Solutions of Equation of Higher Order
-*** TODO String Algorithms [%]
+*** TODO String Algorithms [0%]
 - [ ] Aho-Corasick Automaton
 - [ ] Extended Knuth-Morris-Pratt Algorithm
 - [ ] Knuth-Morris-Pratt Algorithm
@@ -98,14 +98,14 @@ As Lmxyy has retired, he wants to leave something to his junior schoolmates, so 
 - [ ] Smallest Representation
 - [ ] Suffix Array
 - [ ] Suffix Automaton
-*** TODO Others [%]
+*** TODO Others [0%]
 - [ ] Calculation of Date
 - [ ] Emacs Configuration
-**** TODO Java Hints [0%]
-- [ ] Code Examples
-- [ ] BigDecimal Class
-- [ ] BigInteger Class
-- [ ] MathContext Class
-- [ ] RoundingMode Class
-- [ ] String Class
+- [ ] Java Hints [0%]
+  - [ ] Code Examples
+  - [ ] BigDecimal Class
+  - [ ] BigInteger Class
+  - [ ] MathContext Class
+  - [ ] RoundingMode Class
+  - [ ] String Class
 
