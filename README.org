@@ -7,11 +7,11 @@
 + The author of templates is Lmxyy. Welcome to use my template. Using my templates, you can help me check the correctness of my templates. If you have any advice, please contact 664789531@qq.com.
 ** Code-examination Project
 As Lmxyy has retired, he wants to leave something to his junior schoolmates, so he needs to do some examination in his templates. The GTD lists are following:
-*** TODO Algorithms [20%]
+*** TODO Algorithms [80%]
 - [X] 1D1D Dynamic Programming
-- [ ] Dynamic Minimal Spanning Tree
-- [ ] Plug-like Dynamic Programming
-- [ ] Slop Optimization
+- [X] Dynamic Minimal Spanning Tree
+- [X] Plug-like Dynamic Programming
+- [X] Slop Optimization
 - [ ] Three-dimension Partial Order
 *** TODO Computational Geometry [0%]
 - [ ] Three-dimension [0%]
@@ -54,7 +54,7 @@ As Lmxyy has retired, he wants to leave something to his junior schoolmates, so 
 - [ ] Dinic Algorithm
 - [ ] Dominator Tree
 - [ ] Graph Isomorphism
-- [ ] Hungary
+- [ ] Hungary Algorithm
 - [ ] Isap Algorithm
 - [ ] Kuhn-Munkres Algorithm
 - [ ] Maximal Matching in General Graphs

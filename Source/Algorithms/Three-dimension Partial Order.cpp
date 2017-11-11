@@ -1,4 +1,5 @@
-//三维偏序，CDQ分治
+// 三维偏序，CDQ分治，最长上升
+// Gym-101081 J
 #define lowbit(a) (a&-a)
 int M,N,A,B,tree[maxn];
 
@@ -9,11 +10,12 @@ inline int calc(int a) { int ret = 0; for (;a;a -= lowbit(a)) ret = max(tree[a],
 struct Node
 {
 	int x,y,z,res;
-	inline Node(int _x = 0,int _y = 0,int _z = 0,int _res = 0):x(_x),y(_y),z(_z),res(_res) {}
+	inline Node() = default;
+	inline Node(int _x,int _y,int _z,int _res):x(_x),y(_y),z(_z),res(_res) {}
 	inline void update() { ++x,++y,++z; }
 }E[maxn];
 
-inline bool cmpx(const Node &a,const Node &b)
+inline bool cmpx(const Node &a,const Node &b) // 防止严格上升x相同元素出bug，故第二维降序
 {
 	if (a.x != b.x) return a.x < b.x;
 	else if (a.y != b.y) return a.y > b.y;

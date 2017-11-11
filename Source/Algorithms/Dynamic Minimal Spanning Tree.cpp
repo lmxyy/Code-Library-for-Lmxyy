@@ -1,4 +1,5 @@
 // 每次修改一条边，每次修改一条边权值，求最小生成树
+// BZOJ 2001
 #include<algorithm>
 #include<cstring>
 #include<vector>

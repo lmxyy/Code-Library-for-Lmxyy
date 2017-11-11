@@ -1,4 +1,4 @@
-// ural 1519
+// Ural 1519
 #include<cstdio>
 #include<cstdlib>
 #include<cstring>
