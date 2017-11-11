@@ -1,6 +1,111 @@
+#+STARTUP: content
 #+TITLE: Code Library of Lmxyy
 ** Task
 - Add my code templates to the corresponding file catalog under the catalog "source".
 - Add the corresponding item in "Template.tex" in root directory, and then compile it twice with XeLateX.
 ** Authority
 + The author of templates is Lmxyy. Welcome to use my template. Using my templates, you can help me check the correctness of my templates. If you have any advice, please contact 664789531@qq.com.
+** Code-examination Project
+As Lmxyy has retired, he wants to leave something to his junior schoolmates, so he needs to do some examination in his templates. The GTD lists are following:
+*** TODO Algorithms [20%]
+- [X] 1D1D Dynamic Programming
+- [ ] Dynamic Minimal Spanning Tree
+- [ ] Plug-like Dynamic Programming
+- [ ] Slop Optimization
+- [ ] Three-dimension Partial Order
+*** TODO Computational Geometry [%]
+**** TODO Three-dimension [%]
+- [ ] Common Formulas
+- [ ] Convex Hull
+- [ ] Minimal Ball Cover
+- [ ] Volume of Tetrahedron
+**** TODO Two-dimension [0%]
+- [ ] Circle Intersection
+- [ ] Common Formulas
+- [ ] Convex Hull
+- [ ] Cross Points of Circles
+- [ ] Cross Points of Line and Circle
+- [ ] Graham Scanning Algorithm
+- [ ] Half Plane Intersection
+- [ ] Intersecting Area of Circle and Polygon
+- [ ] Intersection of Line and Convex Hull
+- [ ] Minimal Circle Cover
+- [ ] Minimal Product
+- [ ] Planar Graph
+- [ ] Polygon Class
+- [ ] Union Area of Circles
+*** TODO Data Structure [0%]
+- [ ] Divide and Conquer on Tree
+- [ ] Dynamicly Divide and Conquer on Tree
+- [ ] Heavy Path Decomposition
+- [ ] K-dimension Tree
+- [ ] Leftlist Tree
+- [ ] Link Cut Tree
+- [ ] Merge Split Treap
+- [ ] Modui Algorithm on Tree
+- [ ] Modui Algorithm without Deletion
+- [ ] President Tree
+- [ ] Splay
+*** TODO Graph Theory [%]
+- [ ] 2-Sat
+- [ ] Bridges and Cut Vertices
+- [ ] Cost Flow
+- [ ] Difference Constraints
+- [ ] Dinic Algorithm
+- [ ] Dominator Tree
+- [ ] Graph Isomorphism
+- [ ] Hungary
+- [ ] Isap Algorithm
+- [ ] Kuhn-Munkres Algorithm
+- [ ] Maximal Matching in General Graphs
+- [ ] Maximal Weighted  Matching in General Graphs
+- [ ] Maximum Cardinality Search
+- [ ] Network Flow with Lower Bound
+- [ ] Point Biconnected Component
+- [ ] Steiner Tree
+- [ ] Stoer Wagner Algorithm
+- [ ] Strongly Connected Component
+- [ ] Virtual Tree
+- [ ] Zhu-Liu Algorithm
+- [ ] ZKW Cost Flow
+*** TODO Number Theory [0%]
+- [ ] Baby Step Giant Step
+- [ ] Chinese Remainder Theorem
+- [ ] Extended Euclidean Algorithm
+- [ ] Linearly Sieve
+- [ ] N-Power Residue
+- [ ] Number Theoretic Transformation
+- [ ] Pollard Rho Algorithm
+- [ ] Primitive Root
+- [ ] Quadratic Residue
+- [ ] Single Variable Modulus Linear Equation
+*** TODO Numerical Algorithms [0%]
+- [ ] Counting Integral Points under Straight Line
+- [ ] Evaluation of Expression
+- [ ] Fast Fourier Transformation
+- [ ] Fast Input and Output
+- [ ] Fraction Class
+- [ ] Gray Code
+- [ ] Numerical Integration
+- [ ] Simplex
+- [ ] Solutions of Equation of Higher Order
+*** TODO String Algorithms [%]
+- [ ] Aho-Corasick Automaton
+- [ ] Extended Knuth-Morris-Pratt Algorithm
+- [ ] Knuth-Morris-Pratt Algorithm
+- [ ] Manacher Algorithm
+- [ ] Palindrome Automaton
+- [ ] Smallest Representation
+- [ ] Suffix Array
+- [ ] Suffix Automaton
+*** TODO Others [%]
+- [ ] Calculation of Date
+- [ ] Emacs Configuration
+**** TODO Java Hints [0%]
+- [ ] Code Examples
+- [ ] BigDecimal Class
+- [ ] BigInteger Class
+- [ ] MathContext Class
+- [ ] RoundingMode Class
+- [ ] String Class
+
