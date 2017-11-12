@@ -9,9 +9,10 @@ inline int calc(int a) { int ret = 0; for (;a;a -= lowbit(a)) ret = max(tree[a],
 
 struct Node
 {
-	int x,y,z,res;
+	int x,y,z,res,id;
 	inline Node() = default;
-	inline Node(int _x,int _y,int _z,int _res):x(_x),y(_y),z(_z),res(_res) {}
+	inline Node(int _x,int _y,int _z,int _res,int _id):x(_x),y(_y),z(_z),res(_res),id(_id) {}
+	inline void read(int i) { scanf("%d %d %d",&x,&y,&z); id = i; res = 0; }
 	inline void update() { ++x,++y,++z; }
 }E[maxn];
 
