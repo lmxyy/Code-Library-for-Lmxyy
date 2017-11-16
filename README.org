@@ -19,7 +19,7 @@ As Lmxyy has retired, he wants to leave something to his junior schoolmates, so 
   - [X] Convex Hull
   - [ ] Minimal Ball Cover
   - [ ] Volume of Tetrahedron
-- [-] Two-dimension [46%]
+- [-] Two-dimension [53%]
   - [ ] Circle Intersection
   - [X] Common Formulas
   - [X] Convex Hull
@@ -27,7 +27,7 @@ As Lmxyy has retired, he wants to leave something to his junior schoolmates, so 
   - [X] Cross Points of Line and Circle
   - [X] Graham Scanning Algorithm
   - [X] Half Plane Intersection
-  - [ ] Intersecting Area of Circle and Polygon
+  - [X] Intersecting Area of Circle and Polygon
   - [ ] Intersection of Line and Convex Hull
   - [ ] Minimal Circle Cover
   - [ ] Minimal Product

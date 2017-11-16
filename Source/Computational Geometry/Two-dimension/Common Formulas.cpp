@@ -5,6 +5,7 @@ inline int dcmp(double a)
 	else if (a < -eps) return -1;
 	else return 0;
 }
+
 struct Point
 {
     double x,y;
@@ -39,6 +40,7 @@ struct Point
 	friend inline double operator /(const Point &a,const Point &b) { return a.x*b.y-a.y*b.x; } // 叉积
 	friend inline double operator *(const Point &a,const Point &b) { return a.x*b.x+a.y*b.y; } // 点积
 };
+
 struct Line
 {
     Point p,v; double slope;

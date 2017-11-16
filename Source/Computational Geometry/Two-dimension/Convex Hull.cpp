@@ -26,7 +26,7 @@ inline int ConvexHull()
         convex[++m] = P[i];
     }
     int k = m;
-    for (int i = N-1;i;--i)
+    for (int i = N-1;i > 0;--i)
     {
         while (m > k&&(convex[m]-convex[m-1])/(P[i]-convex[m - 1]) <= 0) --m;
         convex[++m] = P[i];
