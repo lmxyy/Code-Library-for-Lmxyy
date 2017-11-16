@@ -14,26 +14,25 @@ As Lmxyy has retired, he wants to leave something to his junior schoolmates, so 
 - [X] Slop Optimization
 - [X] Three-dimension Partial Order
 *** TODO Computational Geometry [0%]
-- [ ] Three-dimension [0%]
+- [-] Three-dimension [25%]
   - [ ] Common Formulas
-  - [ ] Convex Hull
+  - [X] Convex Hull
   - [ ] Minimal Ball Cover
   - [ ] Volume of Tetrahedron
-- [ ] Two-dimension [0%]
+- [-] Two-dimension [46%]
   - [ ] Circle Intersection
-  - [ ] Common Formulas
-  - [ ] Convex Hull
-  - [ ] Cross Points of Circles
-  - [ ] Cross Points of Line and Circle
-  - [ ] Graham Scanning Algorithm
-  - [ ] Half Plane Intersection
+  - [X] Common Formulas
+  - [X] Convex Hull
+  - [X] Cross Points of Circles
+  - [X] Cross Points of Line and Circle
+  - [X] Graham Scanning Algorithm
+  - [X] Half Plane Intersection
   - [ ] Intersecting Area of Circle and Polygon
   - [ ] Intersection of Line and Convex Hull
   - [ ] Minimal Circle Cover
   - [ ] Minimal Product
   - [ ] Planar Graph
   - [ ] Polygon Class
-  - [ ] Union Area of Circles
 *** TODO Data Structure [0%]
 - [ ] Divide and Conquer on Tree
 - [ ] Dynamicly Divide and Conquer on Tree

@@ -1,9 +1,9 @@
 //计算几何常用公式
 inline int dcmp(double a)
 {
-	if (fabs(a) <= eps) return 0;
-	else if (a > 0) return 1;
-	else return -1;
+	if (a > eps) return 1;
+	else if (a < -eps) return -1;
+	else return 0;
 }
 struct Point
 {
@@ -17,7 +17,7 @@ struct Point
 		else return *this/len;
 	}
 	inline double norm() const { return sqrt(x*x+y*y); }
-	inline Point reflect(const Point &p) const
+	inline Point reflect(const Point &p) const // 关于P的反演点
 	{
 		Point v = *this-p; double len = v.norm();
 		v = v/len; return p+v*(1/len);
@@ -36,16 +36,17 @@ struct Point
 	friend inline Point operator /(const Point &a,double b) { return Point(a.x/b,a.y/b); }
 	friend inline Point operator *(const Point &a,double b) { return Point(a.x*b,a.y*b); }
 	friend inline Point operator *(double b,const Point &a) { return Point(a.x*b,a.y*b); }
-	friend inline double operator /(const Point &a,const Point &b) { return a.x*b.y-a.y*b.x; }
+	friend inline double operator /(const Point &a,const Point &b) { return a.x*b.y-a.y*b.x; } // 叉积
+	friend inline double operator *(const Point &a,const Point &b) { return a.x*b.x+a.y*b.y; } // 点积
 };
 struct Line
 {
-    Point p,v; double slop;
+    Point p,v; double slope;
 	inline Line() = default;
 	inline Line(const Point &_p,const Point &_v):p(_p),v(_v) {}
-    inline void update() { slop = v.alpha(); }
+    inline void update() { slope = v.alpha(); }
     friend inline bool operator <(const Line &l1,const Line &l2)
-	{ return l1.slop < l2.slop; }
+	{ return l1.slope < l2.slope; }
 	inline double dis(const Point &a) { fabs((a-p)/v)/(v.len()); } //点到直线距离
 };
 
@@ -66,7 +67,7 @@ inline Point rotate(const Point &p,double cost,double sint)
 	return Point(x*cost-y*sint,x*sint+y*cost);
 }
 
-inline Point reflect(const Point &a,const Line &l)
+inline Point reflect(const Point &a,const Line &l) // 点关于直线对称
 {
 	Point p = l.p,v = l.v; v = v.unit();
 	return (2*v*(a-p))*v-(a-p)+p;
