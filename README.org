@@ -2,9 +2,9 @@
 #+TITLE: Code Library of Lmxyy
 ** Task
 - Add my code templates to the corresponding file catalog under the catalog "source".
-- Add the corresponding item in "Template.tex" in root directory, and then compile it twice with XeLateX.
+- Add the corresponding item in [[file:Template.tex][Template.tex]] in root directory, and then compile it twice with XeLateX.
 ** Authority
-+ The author of templates is Lmxyy. Welcome to use my template. Using my templates, you can help me check the correctness of my templates. If you have any advice, please contact 664789531@qq.com.
++ The author of templates is Lmxyy. Welcome to use my template. Using my templates, you can help me check the correctness of my templates. If you have any advice, please contact [[rmail:664789531@qq.com][664789531@qq.com]].
 ** Code-examination Project
 As Lmxyy has retired, he wants to leave something to his junior schoolmates, so he needs to do some examination in his templates. The GTD lists are following:
 *** TODO Algorithms [100%]
