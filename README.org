@@ -14,12 +14,12 @@ As Lmxyy has retired, he wants to leave something to his junior schoolmates, so 
 - [X] Slop Optimization
 - [X] Three-dimension Partial Order
 *** TODO Computational Geometry [0%]
-- [-] Three-dimension [25%]
+- [-] Three-dimension [50%]
   - [ ] Common Formulas
   - [X] Convex Hull
   - [ ] Minimal Ball Cover
-  - [ ] Volume of Tetrahedron
-- [-] Two-dimension [53%]
+  - [X] Volume of Tetrahedron
+- [-] Two-dimension [69%]
   - [ ] Circle Intersection
   - [X] Common Formulas
   - [X] Convex Hull
@@ -30,9 +30,9 @@ As Lmxyy has retired, he wants to leave something to his junior schoolmates, so 
   - [X] Intersecting Area of Circle and Polygon
   - [ ] Intersection of Line and Convex Hull
   - [ ] Minimal Circle Cover
-  - [ ] Minimal Product
+  - [X] Minimal Product
   - [ ] Planar Graph
-  - [ ] Polygon Class
+  - [X] Polygon Class
 *** TODO Data Structure [0%]
 - [ ] Divide and Conquer on Tree
 - [ ] Dynamicly Divide and Conquer on Tree

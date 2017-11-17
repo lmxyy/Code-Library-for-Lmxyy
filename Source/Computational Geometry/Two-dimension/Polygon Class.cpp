@@ -7,7 +7,7 @@ inline bool PointOnSegment(const Point &t,const Point &a,const Point &b)
 
 inline bool in(const Point &a,const Point &b,const Point &c)
 {
-	double alpha = a.angle(),beta = b.angle(),gamma = c.angle(); // angle返回[0,2pi]
+	double alpha = a.angle(),beta = b.angle(),gamma = c.angle(); // angle返回[0,2pi)
 	if (alpha <= beta) return dcmp(gamma-alpha) > 0&&dcmp(beta-gamma) > 0;
 	else return dcmp(gamma-alpha) > 0||dcmp(beta-gamma) > 0; 
 }
@@ -58,7 +58,7 @@ struct Polygon
 		return res > 0;
 	}
 
-	// 线段ab是否有点严格在多边形内部，先判断线段是否与多边形边界有交，再判断ab是否与多边形有交，内部false，外部true
+	// 线段p[ia]p[ib]是否有点严格在多边形内部，先判断线段是否与多边形边界有交，再判断ab是否与多边形有交，内部false，外部true
 	inline bool can(int ia,int ib)
 	{
 		Point a = P[ia],b = P[ib],v = b-a;
