@@ -1,3 +1,4 @@
+// BZOJ1095
 // N个点的树，每个点点权0/1，询问两个0点之间最远距离，每次可以flip一个点的点权
 #include<set>
 #include<vector>
