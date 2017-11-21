@@ -192,6 +192,7 @@ void minball(int n)
 
 inline double smallest_ball()
 {
+	random_shuffle(P,P+N);
 	radius = -1;
 	for (int i = 0;i < N;++i)
 		if (dcmp((res-P[i]).norm()-radius) > 0)

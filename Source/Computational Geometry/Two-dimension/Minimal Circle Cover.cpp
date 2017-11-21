@@ -1,99 +1,78 @@
-#include <iostream>
-#include <cstdio>
-#include <cstring>
-#include <algorithm>
-#include <cmath>
-#include <vector>
+// ZOJ1450
+#include<cmath>
+#include<algorithm>
+#include<cstring>
+#include<iostream>
+#include<cstdio>
+#include<cstdlib>
 using namespace std;
-typedef long long ll;
-const int N=2005;
-const double INF=1e9;
-const double eps=1e-8;
-const double pi=acos(-1);
-inline int read(){
-    char c=getchar();int x=0,f=1;
-    while(c<'0'||c>'9'){if(c=='-')f=-1; c=getchar();}
-    while(c>='0'&&c<='9'){x=x*10+c-'0'; c=getchar();}
-    return x*f;
+
+const int maxn = 110;
+const double eps = 1e-7;
+int N; double radius;
+
+inline int dcmp(double a)
+{
+	if (a > eps) return 1;
+	else if (a < -eps) return -1;
+	else return 0;
 }
 
-inline int sgn(double x){
-    if(abs(x)<eps) return 0;
-    else return x<0?-1:1;
-}
-
-struct Vector{
+struct Point
+{
     double x,y;
-    Vector(double a=0,double b=0):x(a),y(b){}
-    bool operator <(const Vector &a)const{
-        return sgn(x-a.x)<0||(sgn(x-a.x)==0&&sgn(y-a.y)<0);
-    }
-    void print(){printf("%lf %lf\n",x,y);}
-};
-typedef Vector Point;
-Vector operator +(Vector a,Vector b){return Vector(a.x+b.x,a.y+b.y);}
-Vector operator -(Vector a,Vector b){return Vector(a.x-b.x,a.y-b.y);}
-Vector operator *(Vector a,double b){return Vector(a.x*b,a.y*b);}
-Vector operator /(Vector a,double b){return Vector(a.x/b,a.y/b);}
-bool operator ==(Vector a,Vector b){return sgn(a.x-b.x)==0&&sgn(a.y-b.y)==0;}
-double Dot(Vector a,Vector b){return a.x*b.x+a.y*b.y;}
-double Cross(Vector a,Vector b){return a.x*b.y-a.y*b.x;}
-double Len(Vector a){return sqrt(Dot(a,a));}
-Vector Normal(Vector a){
-    return Vector(-a.y,a.x);//counterClockwise
-};
-struct Line{
-    Point s,t;
-    Line(){}
-    Line(Point a,Point b):s(a),t(b){}
-};
-bool isLSI(Line l1,Line l2){
-    Vector v=l1.t-l1.s,u=l2.s-l1.s,w=l2.t-l1.s;
-    return sgn(Cross(v,u))!=sgn(Cross(v,w));
-}
-Point LI(Line a,Line b){
-    Vector v=a.s-b.s,v1=a.t-a.s,v2=b.t-b.s;
-    double t=Cross(v2,v)/Cross(v1,v2);
-    return a.s+v1*t;
-}
-Point Circumcenter(Point a,Point b,Point c){
-    Point p=(a+b)/2,q=(a+c)/2;
-    Vector v=Normal(b-a),u=Normal(c-a);
-    if(sgn(Cross(v,u))==0){
-        if(sgn(Len(a-b)+Len(b-c)-Len(a-c))==0) return (a+c)/2;
-        if(sgn(Len(a-b)+Len(a-c)-Len(b-c))==0) return (b+c)/2;
-        if(sgn(Len(a-c)+Len(b-c)-Len(a-b))==0) return (a+b)/2;
-    }
-    return LI(Line(p,p+v),Line(q,q+u));
+	inline Point() = default;
+	inline Point(double _x,double _y):x(_x),y(_y) {}
+	inline double norm() const { return sqrt(x*x+y*y); }
+	inline void read() { scanf("%lf %lf",&x,&y); }
+    friend inline Point operator -(const Point &a,const Point &b) { return Point(a.x-b.x,a.y-b.y); }
+	friend inline Point operator +(const Point &a,const Point &b) { return Point(a.x+b.x,a.y+b.y); }
+	friend inline Point operator /(const Point &a,double b) { return Point(a.x/b,a.y/b); }
+}P[maxn],center;
+
+inline Point circle_center(const Point &p0,const Point &p1,const Point &p2)
+{
+	double a1 = p1.x-p0.x,b1 = p1.y-p0.y,c1 = (a1*a1+b1*b1)/2;
+	double a2 = p2.x-p0.x,b2 = p2.y-p0.y,c2 = (a2*a2+b2*b2)/2;
+	double d = a1*b2-a2*b1;
+	return Point(p0.x+(c1*b2-c2*b1)/d,p0.y+(a1*c2-a2*c1)/d);	
 }
 
-double minCircleCover(Point p[],int n,Point &c){
-    random_shuffle(p+1,p+1+n);
-    c=p[1];
-    double r=0;
-    for(int i=2;i<=n;i++)
-        if(sgn(Len(c-p[i])-r)>0){
-            c=p[i],r=0;
-            for(int j=1;j<i;j++)
-                if(sgn(Len(c-p[j])-r)>0){
-                    c=(p[i]+p[j])/2,r=Len(c-p[i]);
-                    for(int k=1;k<j;k++)
-                        if(sgn(Len(c-p[k])-r)>0){
-                            c=Circumcenter(p[i],p[j],p[k]);
-                            r=Len(c-p[i]);
-                        }
-                }
-        }
-    return r;
+inline bool point_in(const Point &p) { return dcmp((p-center).norm()-radius) < 0; }
+
+double smallest_circle(Point P[],int n)
+{
+	random_shuffle(P,P+n);
+	radius = 0; center = P[0];
+	for (int i = 1;i < n;++i)
+		if (!point_in(P[i]))
+		{
+			center = P[i]; radius = 0;
+			for (int j = 0;j < i;++j)
+				if (!point_in(P[j]))
+				{
+					center = (P[i]+P[j])/2;
+					radius = (P[j]-center).norm();
+					for (int k = 0;k < j;++k)
+						if (!point_in(P[k]))
+						{
+							center = circle_center(P[i],P[j],P[k]);
+							radius = (P[k]-center).norm();
+						}
+				}
+		}
+	return radius;
 }
 
-int n;
-Point p[N],c;
-int main(int argc, const char * argv[]){
-    while(true){
-        n=read();if(n==0) break;
-        for(int i=1;i<=n;i++) scanf("%lf%lf",&p[i].x,&p[i].y);
-        double r=minCircleCover(p,n,c);
-        printf("%.2f %.2f %.2f\n",c.x,c.y,r);
-    }
+int main()
+{
+	freopen("1450.in","r",stdin);
+	while (true)
+	{
+		scanf("%d",&N); if (!N) break;
+		for (int i = 0;i < N;++i) P[i].read();
+		smallest_circle(P,N);
+		printf("%.2f %.2f %.2f\n",center.x,center.y,radius);
+	}
+	return 0;
 }
