@@ -1,4 +1,5 @@
-//modified
+// Gym - 100443J
+// modified
 const double eps = 1e-7,pi = acos(-1.0);
 int N,M; double area[maxn]; // area[k] -> area of intersections >= k.
 

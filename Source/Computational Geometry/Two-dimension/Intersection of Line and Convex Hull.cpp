@@ -1,3 +1,4 @@
+// Poj1912
 // 询问一条直线与凸包是否有交
 // O(logN)
 inline int dcmp(double a)
