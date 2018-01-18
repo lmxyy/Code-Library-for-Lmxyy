@@ -19,7 +19,7 @@ As Lmxyy has retired, he wants to leave something to his junior schoolmates, so 
   - [X] Convex Hull
   - [X] Minimal Ball Cover
   - [X] Volume of Tetrahedron
-- [-] Two-dimension [84%]
+- [-] Two-dimension [92%]
   - [ ] Circle Intersection
   - [X] Common Formulas
   - [X] Convex Hull
@@ -31,7 +31,7 @@ As Lmxyy has retired, he wants to leave something to his junior schoolmates, so 
   - [X] Intersection of Line and Convex Hull
   - [X] Minimal Circle Cover
   - [X] Minimal Product
-  - [ ] Planar Graph
+  - [X] Planar Graph
   - [X] Polygon Class
 *** TODO Data Structure [9%]
 - [ ] Divide and Conquer on Tree
