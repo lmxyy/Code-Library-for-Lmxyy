@@ -1,22 +1,44 @@
+// poj1741
+#include<algorithm>
+#include<vector>
 #include<cstring>
 #include<iostream>
 #include<cstdio>
 #include<cstdlib>
 using namespace std;
 
-#define maxn (100010)
-int best,cnt = 1,side[maxn],toit[maxn],next[maxn],large[maxn];
-int sd[maxn],d[maxn],ns,nd,ans,N,K,size[maxn]; bool vis[maxn];
+#define lowbit(a) (a&-a)
+const int maxn = 10010;
+int ans,N,K,cnt,centriod;
+int side[maxn],nxt[maxn*2],toit[maxn*2],len[maxn*2],size[maxn],large[maxn];
+bool vis[maxn]; int tot,tree[maxn];
 
-inline void add(int a,int b)
-{ next[++cnt] = side[a]; side[a] = cnt; toit[cnt] = b; }
-inline void ins(int a,int b)
-{ add(a,b); add(b,a); }
+inline void init()
+{
+	cnt = 1; ans = 0;
+	memset(side,0,sizeof(*tree)*(N+10));
+	memset(vis,false,sizeof(*vis)*(N+10));
+}
 
-inline void getroot(int now,int fa,int rest)
+inline void ins(int a,int b) { for (;a <= tot;a += lowbit(a)) tree[a] += b; }
+inline int calc(int a) { int ret = 0; for (;a;a -= lowbit(a)) ret += tree[a]; return ret; }
+
+inline void add(int a,int b,int c) { nxt[++cnt] = side[a]; side[a] = cnt; toit[cnt] = b; len[cnt] = c; }
+inline void ins(int a,int b,int c) { add(a,b,c); add(b,a,c); }
+
+inline int gi()
+{
+	char ch; int ret = 0,f = 1;
+	do ch = getchar(); while (!(ch >= '0'&&ch <= '9')&&ch != '-');
+	if (ch == '-') f = -1,ch = getchar();
+	do ret = ret*10+ch-'0',ch = getchar(); while (ch >= '0'&&ch <= '9');
+	return ret*f;
+}
+
+void getroot(int now,int fa,int rest)
 {
 	size[now] = 1; large[now] = 0;
-	for (int i = side[now];i;i = next[i])
+	for (int i = side[now];i;i = nxt[i])
 	{
 		if (toit[i] == fa||vis[toit[i]]) continue;
 		getroot(toit[i],now,rest);
@@ -24,44 +46,71 @@ inline void getroot(int now,int fa,int rest)
 		large[now] = max(large[now],size[toit[i]]);
 	}
 	large[now] = max(large[now],rest-size[now]);
-	if (large[now] < large[best]) best = now;
+	if (large[now] < large[centriod]) centriod = now;
 }
-inline int find_root(int now,int rest)
-{ best = 0; getroot(now,0,rest); return best; }
+inline int find_root(int now,int rest) { centriod = 0; getroot(now,0,rest); return centriod; }
 
-inline void dfs(int now,int fa,int dep)
+vector <int> disc,tmp;
+
+void predfs(int now,int fa,int dis)
 {
-	size[now] = 1; nd = max(dep,nd); ++d[dep];
-	for (int i = side[now];i;i = next[i])
+	disc.push_back(dis);
+	for (int i = side[now];i;i = nxt[i])
 		if (toit[i] != fa&&!vis[toit[i]])
-			dfs(toit[i],now,dep+1),size[now] += size[toit[i]];
+			predfs(toit[i],now,dis+len[i]);
+}
+void dfs(int now,int fa,int dis)
+{
+	size[now] = 1;
+	tmp.push_back(dis); if (dis <= K) ++ans;
+	for (int i = side[now];i;i = nxt[i])
+		if (toit[i] != fa&&!vis[toit[i]])
+			dfs(toit[i],now,dis+len[i]),size[now] += size[toit[i]];
 }
 
-inline void subdivide(int now)
+void subdivide(int now)
 {
 	vis[now] = true;
-	for (int i = side[now];i;i = next[i])
+	disc.clear();
+	for (int i = side[now];i;i = nxt[i])
 	{
 		if (vis[toit[i]]) continue;
-		dfs(toit[i],now,1); ans += d[K];
-		for (int j = 1;j < K;++j) ans += d[j]*sd[K-j];
-		for (int j = 1;j <= nd;++j) sd[j] += d[j],d[j] = 0;
-		ns = max(nd,ns); nd = 0;
+		predfs(toit[i],now,len[i]);
 	}
-	memset(sd,0,4*(ns+1)); ns = 0;
-	for (int i = side[now];i;i = next[i])
-		if (!vis[toit[i]])
-			subdivide(find_root(toit[i],size[toit[i]]));
+	sort(disc.begin(),disc.end());
+	disc.erase(unique(disc.begin(),disc.end()),disc.end());
+	tot = disc.size();
+	for (int i = 1;i <= tot;++i) tree[i] = 0;
+	for (int i = side[now];i;i = nxt[i])
+	{
+		if (vis[toit[i]]) continue;
+		tmp.clear(); dfs(toit[i],now,len[i]);
+		for (int j = 0;j < (int)tmp.size();++j)
+		{
+			int lim = K-tmp[j],pos = upper_bound(disc.begin(),disc.end(),lim)-disc.begin();
+			ans += calc(pos);
+		}
+		for (int j = 0;j < (int)tmp.size();++j)
+			ins(lower_bound(disc.begin(),disc.end(),tmp[j])-disc.begin()+1,1);
+	}
+	for (int i = side[now];i;i = nxt[i])
+	{
+		if (vis[toit[i]]) continue;
+		subdivide(find_root(toit[i],size[toit[i]]));
+	}
 }
 
 int main()
 {
-	freopen("D.in","r",stdin);
-	freopen("D.out","w",stdout);
-	scanf("%d %d",&N,&K);
-	for (int i = 1,a,b;i < N;++i) scanf("%d %d",&a,&b),ins(a,b);
-	large[0] = 1<<30; subdivide(find_root(1,N));
-	printf("%d",ans);
-	fclose(stdin); fclose(stdout);
+	while (true)
+	{
+		scanf("%d %d",&N,&K);
+		if (N == 0&&K == 0) break;
+		init();
+		for (int i = 1,a,b,c;i < N;++i)
+			a = gi(),b = gi(),c = gi(),ins(a,b,c);
+		large[0] = 1<<30; subdivide(find_root(1,N));
+		printf("%d\n",ans);
+	}
 	return 0;
 }

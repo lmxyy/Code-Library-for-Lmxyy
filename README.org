@@ -7,20 +7,20 @@
 + The author of templates is Lmxyy. Welcome to use my template. Using my templates, you can help me check the correctness of my templates. If you have any advice, please contact [[rmail:664789531@qq.com][664789531@qq.com]].
 ** Code-examination Project
 As Lmxyy has retired, he wants to leave something to his junior schoolmates, so he needs to do some examination in his templates. The GTD lists are following:
-*** TODO Algorithms [100%]
+*** DONE Algorithms [100%]
 - [X] 1D1D Dynamic Programming
 - [X] Dynamic Minimal Spanning Tree
 - [X] Plug-like Dynamic Programming
 - [X] Slop Optimization
 - [X] Three-dimension Partial Order
-*** TODO Computational Geometry [0%]
+*** TODO Computational Geometry [50%]
 - [-] Three-dimension [75%]
   - [ ] Common Formulas
   - [X] Convex Hull
   - [X] Minimal Ball Cover
   - [X] Volume of Tetrahedron
-- [-] Two-dimension [92%]
-  - [ ] Circle Intersection
+- [X] Two-dimension [100%]
+  - [X] Circle Intersection
   - [X] Common Formulas
   - [X] Convex Hull
   - [X] Cross Points of Circles
@@ -33,8 +33,8 @@ As Lmxyy has retired, he wants to leave something to his junior schoolmates, so 
   - [X] Minimal Product
   - [X] Planar Graph
   - [X] Polygon Class
-*** TODO Data Structure [9%]
-- [ ] Divide and Conquer on Tree
+*** TODO Data Structure [18%]
+- [X] Divide and Conquer on Tree
 - [X] Dynamicly Divide and Conquer on Tree
 - [ ] Heavy Path Decomposition
 - [ ] K-dimension Tree
