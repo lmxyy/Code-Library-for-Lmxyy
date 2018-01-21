@@ -1,8 +1,8 @@
-#+STARTUP: content
-#+TITLE: Code Library of Lmxyy
+#+AUTHOR: Lmxyy
+#+TITLE: Code Library for Lmxyy
 ** Task
-- Add my code templates to the corresponding file directory under the directory ~[[file:Source][Source]]~.
-- Add the corresponding item in ~[[file:Template.tex][Template.tex]]~ in root directory, and then compile it twice with XeLateX.
+- Add my code templates to the corresponding file directory under the directory [[file:Source][Source]].
+- Add the corresponding item in [[file:Template.tex][Template.tex]] in root directory, and then compile it twice with XeLateX.
 ** Authority
 + The author of templates is Lmxyy. Welcome to use my template. Using my templates, you can help me check the correctness of my templates. If you have any advice, please contact [[rmail:664789531@qq.com][664789531@qq.com]].
 ** Code-examination Project
