@@ -1,65 +1,4 @@
-//splay
-
-inline int find(int rk)
-{
-	for (int now = root;;)
-	{
-		if (rk == size[ch[now][0]]+1) return now;
-		else if (rk > size[ch[now][0]]+1)
-			rk -= size[ch[now][1]]+1,now = ch[now][1];
-		else now = ch[now][0];
-	}
-	return 0;
-}
-
-inline int upperbound(int x)
-{
-	int ret = 0;
-	for (int now = root;now;)
-	{
-		if (key[now] > x) ret = now,now = ch[now][0];
-		else now = ch[now][1];
-	}
-	return ret;
-}
-inline int lowerbound(int x)
-{
-	int ret = 0;
-	for (int now = root;now;)
-	{
-		if (key[now] >= x) ret = now,now = ch[now][0];
-		else now = ch[now][1];
-	}
-	return ret;
-}
-
-inline void rotate(int x)
-{
-	int y = fa[x],z = fa[y],l = ch[y][0] != x,r = l^1;
-	if (z) ch[z][ch[z][0] != y] = x; fa[x] = z;
-	if (ch[x][r]) fa[ch[x][r]] = y;
-	ch[y][l] = ch[x][r]; fa[y] = x; ch[x][r] = y;
-	update(y); update(x);
-}
-inline void splay(int x,int aim) //aim is x's father.
-{
-	int top = 0;
-	for (int i = x;i;i = fa[i]) stack[++top] = i;
-	while (top) pushdown(stack[top--]);
-	while (fa[x] != aim)
-	{
-		int y = fa[x],z = fa[y];
-		if (z != aim)
-		{
-			if ((ch[y][0] == x)^(ch[z][0] == y)) rotate(x);
-			else rotate(y);
-		}
-		rotate(x);
-	}
-	if (!aim) root = x;
-}
-
-// 维修数列
+// BZOJ - 1500维修数列
 #include<cassert>
 #include<queue>
 #include<algorithm>
@@ -130,7 +69,6 @@ inline void pushdown(int now)
 
 inline void update(int now)
 {
-	// pushdown(now);
 	int lc = ch[now][0],rc = ch[now][1];
 	size[now] = size[lc]+size[rc]+1;
 	sum[now] = sum[lc]+sum[rc]+key[now];
@@ -191,10 +129,9 @@ inline int find(int rk)
 inline void rotate(int x)
 {
 	int y = fa[x],z = fa[y],l = ch[y][0] != x,r = l^1;
-	if (z) ch[z][ch[z][0] != y] = x;
-	fa[x] = z; fa[y] = x; fa[ch[x][r]] = y;
-	ch[y][l] = ch[x][r]; ch[x][r] = y;
-	update(y); update(x);
+	if (z) ch[z][ch[z][0] != y] = x; fa[x] = z;
+	if (ch[x][r]) fa[ch[x][r]] = y; ch[y][l] = ch[x][r];
+	fa[y] = x; ch[x][r] = y; update(y); update(x);
 }
 inline void splay(int x,int aim)
 {
@@ -214,31 +151,12 @@ inline void splay(int x,int aim)
 	if (!aim) root = x;
 }
 
-inline void Delete(int &now)
+inline void remove(int &now)
 {
 	if (!now) return;
-	Delete(ch[now][0]);
-	Delete(ch[now][1]);
+	remove(ch[now][0]);
+	remove(ch[now][1]);
 	team.push(now); now = 0;
-}
-
-inline void print()
-{
-	for (int i = 1;i <= cnt;++i)
-		printf("%d:%d %d\n",i,ch[i][0],ch[i][1]);
-	for (int i = 1;i <= cnt;++i)
-		printf("%d:%d\n",i,fa[i]);
-	
-}
-
-inline void laydown(int now)
-{
-	if (!now) return;
-	pushdown(now);
-	laydown(ch[now][0]);
-	printf("%d ",key[now]);
-	laydown(ch[now][1]);
-	update(now);
 }
 
 int main()
@@ -261,7 +179,7 @@ int main()
 			int pos = gi(); N = gi();
 			int a = find(pos),b = find(pos+N+1);
 			splay(a,0); splay(b,a);
-			Delete(ch[b][0]); update(b); update(a);
+			remove(ch[b][0]); update(b); update(a);
 		}
 		else if (cmd[0] == 'M'&&cmd[2] == 'K')
 		{

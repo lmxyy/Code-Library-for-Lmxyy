@@ -33,18 +33,18 @@ As Lmxyy has retired, he wants to leave something to his junior schoolmates, so 
   - [X] Minimal Product
   - [X] Planar Graph
   - [X] Polygon Class
-*** TODO Data Structure [27%]
+*** TODO Data Structure [63%]
 - [X] Divide and Conquer on Tree
 - [X] Dynamicly Divide and Conquer on Tree
 - [X] Heavy Path Decomposition
 - [ ] K-dimension Tree
-- [ ] Leftlist Tree
-- [ ] Link Cut Tree
-- [ ] Merge Split Treap
+- [X] Leftlist Tree
+- [X] Link Cut Tree
+- [X] Merge Split Treap
 - [ ] Modui Algorithm on Tree
 - [ ] Modui Algorithm without Deletion
 - [ ] President Tree
-- [ ] Splay
+- [X] Splay
 *** TODO Graph Theory [0%]
 - [ ] 2-Sat
 - [ ] Bridges and Cut Vertices
