@@ -33,7 +33,7 @@ As Lmxyy has retired, he wants to leave something to his junior schoolmates, so 
   - [X] Minimal Product
   - [X] Planar Graph
   - [X] Polygon Class
-*** TODO Data Structure [63%]
+*** TODO Data Structure [90%]
 - [X] Divide and Conquer on Tree
 - [X] Dynamicly Divide and Conquer on Tree
 - [X] Heavy Path Decomposition
@@ -41,23 +41,23 @@ As Lmxyy has retired, he wants to leave something to his junior schoolmates, so 
 - [X] Leftlist Tree
 - [X] Link Cut Tree
 - [X] Merge Split Treap
-- [ ] Modui Algorithm on Tree
-- [ ] Modui Algorithm without Deletion
-- [ ] President Tree
+- [X] Modui Algorithm on Tree
+- [X] Modui Algorithm without Deletion
+- [X] President Tree
 - [X] Splay
-*** TODO Graph Theory [0%]
+*** TODO Graph Theory [28%]
 - [ ] 2-Sat
 - [ ] Bridges and Cut Vertices
 - [ ] Cost Flow
 - [ ] Difference Constraints
-- [ ] Dinic Algorithm
-- [ ] Dominator Tree
+- [X] Dinic Algorithm
+- [X] Dominator Tree
 - [ ] Graph Isomorphism
 - [ ] Hungary Algorithm
 - [ ] Isap Algorithm
-- [ ] Kuhn-Munkres Algorithm
-- [ ] Maximal Matching in General Graphs
-- [ ] Maximal Weighted  Matching in General Graphs
+- [X] Kuhn-Munkres Algorithm
+- [X] Maximal Matching in General Graphs
+- [X] Maximal Weighted  Matching in General Graphs
 - [ ] Maximum Cardinality Search
 - [ ] Network Flow with Lower Bound
 - [ ] Point Biconnected Component
@@ -65,24 +65,24 @@ As Lmxyy has retired, he wants to leave something to his junior schoolmates, so 
 - [ ] Stoer Wagner Algorithm
 - [ ] Strongly Connected Component
 - [ ] Virtual Tree
-- [ ] Zhu-Liu Algorithm
+- [X] Zhu-Liu Algorithm
 - [ ] ZKW Cost Flow
-*** TODO Number Theory [0%]
+*** TODO Number Theory [10%]
 - [ ] Baby Step Giant Step
 - [ ] Chinese Remainder Theorem
 - [ ] Extended Euclidean Algorithm
 - [ ] Linearly Sieve
 - [ ] N-Power Residue
-- [ ] Number Theoretic Transformation
+- [X] Number Theoretic Transformation
 - [ ] Pollard Rho Algorithm
 - [ ] Primitive Root
 - [ ] Quadratic Residue
 - [ ] Single Variable Modulus Linear Equation
-*** TODO Numerical Algorithms [0%]
-- [ ] Counting Integral Points under Straight Line
-- [ ] Evaluation of Expression
-- [ ] Fast Fourier Transformation
-- [ ] Fast Input and Output
+*** TODO Numerical Algorithms [44%]
+- [X] Counting Integral Points under Straight Line
+- [X] Evaluation of Expression
+- [X] Fast Fourier Transformation
+- [X] Fast Input and Output
 - [ ] Fraction Class
 - [ ] Gray Code
 - [ ] Numerical Integration
@@ -107,4 +107,4 @@ As Lmxyy has retired, he wants to leave something to his junior schoolmates, so 
   - [ ] MathContext Class
   - [ ] RoundingMode Class
   - [ ] String Class
-
+    

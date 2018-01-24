@@ -1,3 +1,4 @@
+// Checked by HackerRank - coprime-paths (This is not the problem.)
 // 询问树上路径元素mex，inc dec复杂度不对，需要用线段树/set(带log)或者分块(修改O(1))
 // 若包括lca，每组询问需要把lca补(inc)上去。
 #include<cstdio>

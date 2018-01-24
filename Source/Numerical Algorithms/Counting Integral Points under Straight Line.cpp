@@ -1,3 +1,4 @@
+// POJ - 3495
 // \sum_{i = 0}^{n-1} (a+bi)/m
 inline ll count(ll n,ll a,ll b,ll m)
 {

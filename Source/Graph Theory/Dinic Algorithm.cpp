@@ -1,3 +1,4 @@
+// Check by POJ - 1273
 // dinic
 int source,sink,cnt = 1;
 int d[maxv],side[maxv],cur[maxv],nxt[maxe],toit[maxe],cap[maxe]; bool in[maxv];

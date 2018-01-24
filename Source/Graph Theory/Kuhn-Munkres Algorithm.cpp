@@ -1,3 +1,4 @@
+// Checked by BZOJ - 3571
 // Truly O(n^3),最大权匹配
 // 邻接矩阵，不能连的边设为-INF，求最小权匹配时边权取负，但不能连的还是 -INF，使用时先对 1 -> n 调用 hungary() ，再 get_ans() 求值
 struct KM
@@ -59,7 +60,8 @@ struct KM
 		return sum;
 	}
 }km;
-//最小权匹配
+
+//最小权匹配 - 可以把上述正值取负进行
 struct KM
 {
 	int w[maxn][maxn],lx[maxn],ly[maxn],match[maxn],way[maxn],slack[maxn]; bool used[maxn];
