@@ -33,11 +33,11 @@ As Lmxyy has retired, he wants to leave something to his junior schoolmates, so 
   - [X] Minimal Product
   - [X] Planar Graph
   - [X] Polygon Class
-*** TODO Data Structure [90%]
+*** DONE Data Structure [100%]
 - [X] Divide and Conquer on Tree
 - [X] Dynamicly Divide and Conquer on Tree
 - [X] Heavy Path Decomposition
-- [ ] K-dimension Tree
+- [X] K-dimension Tree
 - [X] Leftlist Tree
 - [X] Link Cut Tree
 - [X] Merge Split Treap
