@@ -1,24 +1,55 @@
-// 包括平面图转对偶图
+// Be hacked on uoj57, 97%.
+#include<vector>
+#include<cstdio>
+#include<cstdlib>
+#include<iostream>
+#include<algorithm>
+#include<cmath>
+#include<set>
+using namespace std;
+
+const double eps = 1e-7;
+const int inf = 1<<30,oo = 100000000,maxv = 300010,maxe = 300010;
+const int maxn = 300010,maxm = 300010,maxq = 300010;
+
+int N,M,T,ncnt = 1,cnt = 1,tot,all;
+int side[maxv],nxt[maxe*2],toit[maxe*2],len[maxe*2];
+int father[maxv],dep[maxv],f[maxv][30],g[maxv][30];
+int query[maxq][2]; double space[maxn];
+
+inline int gi()
+{
+	int f = 1,ret = 0; char ch;
+	do ch = getchar(); while ((ch < '0'||ch > '9')&&ch != '-');
+	if (ch == '-') f = -1,ch = getchar();
+	do ret = ret*10+ch-'0',ch = getchar(); while (ch >= '0'&&ch <= '9');
+	return ret*f;
+}
+
 inline int dcmp(double a)
 {
 	if (fabs(a) <= eps) return 0;
 	else if (a > 0) return 1;
 	else return -1;
 }
+
 struct Point
 {
 	double x,y;
-	inline Point(double _x = 0,double _y = 0):x(_x),y(_y) {}
+	inline Point() = default;
+	inline Point(double _x,double _y):x(_x),y(_y) {}
 	inline void read() { x = gi(),y = gi(); }
 	friend inline Point operator-(const Point &a,const Point &b) { return Point(a.x-b.x,a.y-b.y); }
 	friend inline double operator/(const Point &a,const Point &b) { return a.x*b.y-a.y*b.x; }
 	inline double angle() { return atan2(y,x); }
-}pp[maxn];
+}P[maxn];
+
 struct Segment
 {
-	int from,to,h,id,sur; // from号点到to号点，h为边权,suf为这条有向边维出来的平面编号。
-	inline Segment(int _from = 0,int _to = 0,int _h = 0,int _id = 0,int _sur = 0):from(_from),to(_to),h(_h),id(_id),sur(_sur) {}
-	friend inline bool operator<(const Segment &a,const Segment &b) { return (pp[a.to]-pp[a.from]).angle() < (pp[b.to]-pp[b.from]).angle(); }
+	int from,to,h,id,sur; // from号点到to号点，h为边权,suf为这条有向边围出来的平面编号。
+	inline Segment() = default;
+	inline Segment(int _from,int _to,int _h = 0,int _id = 0,int _sur = 0):from(_from),to(_to),h(_h),id(_id),sur(_sur) {}
+	friend inline bool operator<(const Segment &a,const Segment &b) { return (P[a.to]-P[a.from]).angle() < (P[b.to]-P[b.from]).angle(); }
 }edge[maxm*2];
 vector <int> G[maxn];
 
@@ -27,9 +58,18 @@ inline void nins(int u,int v,int h) { nadd(u,v,h); nadd(v,u,h); }
 
 inline bool cmp(int a,int b) { return edge[a] < edge[b]; }
 
-inline void find_surface()
+struct Edge
 {
-	for (int i = 1;i <= N;++i) sort(G[i].begin(),G[i].end(),cmp);
+	int u,v,h;
+	inline Edge() = default;
+	inline Edge(int _u,int _v,int _h):u(_u),v(_v),h(_h) {}
+	friend inline bool operator < (const Edge &a,const Edge &b) { return a.h < b.h; }
+}edges[maxn];
+
+void find_surface()
+{
+	for (int i = 1;i <= N;++i)
+		stable_sort(G[i].begin(),G[i].end(),cmp);
 	for (int i = 1;i <= N;++i)
 	{
 		int nn = G[i].size();
@@ -39,201 +79,196 @@ inline void find_surface()
 	for (int i = 2;i <= ncnt;++i)
 		if (!edge[i].sur)
 		{
-			++tot; int j = i,p,nn; vector <Point> vec;
-			while (!edge[j].sur)
+			++tot; int p,nn; vector <Point> vec;
+			for (int j = i;!edge[j].sur;j = G[p][(edge[j^1].id+1)%nn]) // 逆时针旋转
 			{
-				edge[j].sur = tot; vec.push_back(pp[edge[j].from]);
+				edge[j].sur = tot; vec.push_back(P[edge[j].from]);
 				p = edge[j].to; nn = G[p].size();
-				j ^= 1; j = G[p][(edge[j].id+1)%nn];
 			}
 			double res = 0; nn = vec.size();
-			for (j = 0;j < nn;++j)
+			for (int j = 0;j < nn;++j)
 				res += (vec[j]-vec[0])/(vec[(j+1)%nn]-vec[0]);
-			res /= 2; space[tot] = res; // 第tot个平面的有向面积，外面的大平面面积为正，其余为负,大平面可能有多个（平面图不连通）
+			res /= 2; space[tot] = res; // 面积为正为无穷大平面
 		}
-	// 开始建边，以mst为例
-	// for (int i = 2;i <= cnt;i += 2)
-	// {
-	// 	if (space[edge[i].sur]<0&&space[edge[i^1].sur]<0)
-	// 		arr[++all] = (ARR) { edge[i].sur,edge[i^1].sur,edge[i].h };
-	// 	else arr[++all] = (ARR) { edge[i].sur,edge[i^1].sur,inf};
-	// }
+	for (int i = 2;i <= ncnt;i += 2)
+	{
+		if (space[edge[i].sur]<0&&space[edge[i^1].sur]<0)
+			edges[++all] = Edge(edge[i].sur,edge[i^1].sur,edge[i].h);
+		else edges[++all] = Edge(edge[i].sur,edge[i^1].sur,inf);
+	}
+}
+
+inline void add(int a,int b,int c) { nxt[++cnt] = side[a]; side[a] = cnt; toit[cnt] = b; len[cnt] = c; }
+inline void ins(int a,int b,int c) { add(a,b,c); add(b,a,c); }
+
+inline int find(int a) { if (father[a] != a) father[a] = find(father[a]); return father[a];}
+void dfs(int now)
+{
+	for (int i = 1;(1<<i) <= dep[now];++i)
+	{
+		f[now][i] = f[f[now][i-1]][i-1];
+		g[now][i] = max(g[now][i-1],g[f[now][i-1]][i-1]);
+	}
+	for (int i = side[now];i;i = nxt[i])
+		if (toit[i] != f[now][0])
+		{
+			f[toit[i]][0] = now;
+			dep[toit[i]] = dep[now]+1;
+			g[toit[i]][0] = len[i];
+			dfs(toit[i]);
+		}
+}
+void mst()
+{
+	for (int i = 1;i <= tot;++i) father[i] = i;
+	sort(edges+1,edges+all+1);
+	int k = 0;
+	for (int i = 1;i <= all;++i)
+	{
+		int r1 = find(edges[i].u),r2 = find(edges[i].v);
+		if (r1 != r2)
+		{
+			father[r1] = r2; ++k;
+			ins(edges[i].u,edges[i].v,edges[i].h);
+		}
+		if (k == tot-1) break;
+	}
+	dfs(1);
+}
+
+inline int jump(int &a,int step)
+{
+	int ret = 0;
+	for (int i = 0;step;step >>= 1,++i)
+		if (step&1) ret = max(g[a][i],ret),a = f[a][i];
+	return ret;
+}
+inline int lca(int a,int b)
+{
+	int ret = 0;
+	if (dep[a] < dep[b]) swap(a,b);
+	ret = jump(a,dep[a]-dep[b]);
+	if (a == b) return ret;
+	for (int i = 0;i >= 0;)
+	{
+		if (f[a][i] == f[b][i]) --i;
+		else
+		{
+			ret = max(max(g[a][i],ret),g[b][i]);
+			a = f[a][i]; b = f[b][i]; ++i;
+		}
+	}
+	ret = max(max(g[a][0],ret),g[b][0]);
+	return ret;
 }
 
 // 点定位
-struct Scan
+struct Event
 {
 	double x,y; int bel,sign;
-	inline Scan(double _x = 0,double _y = 0,int _bel = 0,int _sign = 0):x(_x),y(_y),bel(_bel),sign(_sign) {}
-	friend inline bool operator < (const Scan &a,const Scan &b)
+	inline Event() = default;
+	inline Event(double _x,double _y,int _bel,int _sign):x(_x),y(_y),bel(_bel),sign(_sign) {}
+	friend inline bool operator < (const Event &a,const Event &b)
 	{
 		if (a.x != b.x) return a.x < b.x;
 		else return a.sign > b.sign;
 	}
-}bac[maxn*4];
+}event[maxn*4];
 
-struct Splay
+double nowX; int flag;
+struct Node
 {
-	int num,root,ch[maxn][2],fa[maxn],key[maxn]; queue <int> team;
-
-	inline int newnode()
+	int id; Point p,v;
+	inline Node() = default;
+	inline Node(int _id,Point _p,Point _v):id(_id),p(_p),v(_v) {}
+	friend inline bool operator <(const Node &a,const Node &b)
 	{
-		int ret;
-		if (team.empty()) ret = ++num;
-		else ret = team.front(),team.pop();
-		fa[ret] = ch[ret][0] = ch[ret][1] = 0;
-		return ret;
-	}
-
-	inline void init() { num = 0; root = newnode(); key[root] = cnt; }
-
-	inline void rotate(int x)
-	{
-		int y = fa[x],z = fa[y],l = ch[y][1] == x,r = l^1;
-		if (z != 0) ch[z][ch[z][1] == y] = x;
-		fa[x] = z; fa[y] = x; fa[ch[x][r]] = y;
-		ch[y][l] = ch[x][r]; ch[x][r] = y;
-	}
-
-	inline void splay(int x)
-	{
-		while (fa[x] != 0)
+		double ay = a.p.y+(nowX-a.p.x)*a.v.y/a.v.x;
+		double by = b.p.y+(nowX-b.p.x)*b.v.y/b.v.x;
+		if (dcmp(ay-by)) return dcmp(ay-by) < 0;
+		else if (dcmp(a.v/b.v))
 		{
-			int y = fa[x],z = fa[y];
-			if (fa[y] != 0)
-			{
-				if ((ch[y][0] == x)^(ch[z][0] == y)) rotate(x);
-				else rotate(y);
-			}
-			rotate(x);
+			return dcmp(a.v/b.v) == flag;
 		}
-		root = x;
+		else return a.id < b.id;
 	}
+};	
+multiset <Node> S;
 
-	inline int lower_bound(const Point &p)
-	{
-		int now = root,ret = 0;
-		while (now)
-		{
-			int k = key[now];
-			if ((p-pp[edge[k].from])/(pp[edge[k].to]-pp[edge[k].from]) >= 0)
-				ret = k,now = ch[now][0];
-			else now = ch[now][1];
-		}
-		return ret;
-	}
-
-	inline int find(int w)
-	{
-		int now = root;
-		double x = pp[edge[w].to].x,y = pp[edge[w].to].y;
-		double ang = (pp[edge[w].to] - pp[edge[w].from]).angle();
-		while (now)
-		{
-			int k = key[now];
-			if (k == w) return now;
-			NODE p = pp[edge[k].to] - pp[edge[k].from],q = pp[edge[k].from];
-			double xx = x - q.x,yy = q.y+xx/p.x*p.y;
-			if (equal(yy,y))
-			{
-				double t = p.angle();
-				now = ch[now][ang < t];
-			}
-			else now = ch[now][y > yy];
-		}
-	}
-
-	inline void erase(int w)
-	{
-		int p = find(w);
-		while (ch[p][0] || ch[p][1])
-		{
-			if (ch[p][0])
-			{
-				rotate(ch[p][0]);
-				if (p == root) root = fa[p];
-			}
-			else
-			{
-				rotate(ch[p][1]);
-				if (p == root) root = fa[p];
-			}
-		}
-		team.push(p);
-		ch[fa[p]][ch[fa[p]][1] == p] = 0;
-		fa[p] = 0;
-	}
-
-	inline void insert(int w)
-	{
-		int now = root,pre;
-		double x = pp[edge[w].from].x,y = pp[edge[w].from].y;
-		double ang = (pp[edge[w].to] - pp[edge[w].from]).angle();
-		double xx,yy;
-		while (true)
-		{
-			int k = key[now];
-			NODE p = pp[edge[k].to] - pp[edge[k].from],q = pp[edge[k].from];
-			xx = x - q.x,yy = q.y+xx/p.x*p.y;
-			if (equal(yy,y))
-			{
-				double t = p.angle();
-				pre = now,now = ch[now][ang > t];
-				if (!now)
-				{
-					now = newnode();
-					fa[now] = pre; ch[pre][ang > t] = now; key[now] = w;
-					break;
-				}
-			}
-			else
-			{
-				pre = now,now = ch[now][y > yy];
-				if (!now)
-				{
-					now = newnode();
-					fa[now] = pre; ch[pre][y>yy] = now; key[now] = w;
-					break;
-				}
-			}
-		}
-		splay(now);
-	}
-}S;
-
-inline void locate()
+void locate()
 {
 	int nn = 0;
-	for (int i = 2;i <= cnt;i += 2)
+	P[++N] = Point(-oo,oo); P[++N] = Point(oo,oo);
+	edge[++ncnt] = Segment(N-1,N);
+	for (int i = 2;i <= ncnt;i += 2)
 	{
-		if (!dcmp(pp[edge[i].from].x-pp[edge[i].to].x)) continue;
-		bac[++nn] = Scan(pp[edge[i].from].x,pp[edge[i].from].y,i,2);
-		bac[++nn] = Scan(pp[edge[i].to].x,pp[edge[i].to].y,i,3);
+		if (!dcmp(P[edge[i].from].x-P[edge[i].to].x)) continue;
+		event[++nn] = Event(P[edge[i].from].x,P[edge[i].from].y,i,2);
+		event[++nn] = Event(P[edge[i].to].x,P[edge[i].to].y,i,3);
 	}
 	scanf("%d",&T); double x,y;
 	// 查询(x,y)所在平面
 	for (int i = 1;i <= T;++i)
 	{
 		scanf("%lf %lf",&x,&y);
-		bac[++nn] = Scan(x,y,i,0);
+		event[++nn] = Event(x,y,i,0);
 		scanf("%lf %lf",&x,&y);
-		bac[++nn] = Scan(x,y,i,1);
+		event[++nn] = Event(x,y,i,1);
 	}
-	sort(bac+1,bac+nn+1);
-	pp[++n] = Point(-oo,-oo); pp[++n] = (oo,-oo);
-	edge[++cnt] = Edge(n-1,n);
-	S.init(); int p;
+	sort(event+1,event+nn+1);
 	for (int i = 1;i <= nn;++i)
 	{
-		if (bac[i].sign == 2||bac[i].sign == 3)
+		nowX = event[i].x;
+		if (event[i].sign == 2||event[i].sign == 3)
 		{
-			if (bac[i].sign == 2) S.insert(bac[i].bel);
-			else S.erase(bac[i].bel);
+			int t = event[i].bel;
+			if (event[i].sign == 2)
+			{
+				flag = 1;
+				S.insert(Node(t,P[edge[t].from],P[edge[t].to]-P[edge[t].from]));
+			}
+			else
+			{
+				flag = -1;
+				S.erase(S.find(Node(t,P[edge[t].from],P[edge[t].to]-P[edge[t].from])));
+			}
 		}
 		else
 		{
-			p = S.lower_bound(Point(bac[i].x,bac[i].y));
-			query[bac[i].bel][bac[i].sign] = edge[p].sur;
+			int t = S.lower_bound(Node(0,Point(event[i].x,event[i].y),Point(1,1)))->id;
+			query[event[i].bel][event[i].sign] = edge[t].sur;
 		}
 	}
+}
+
+inline void work()
+{
+	for (int i = 1;i <= T;++i)
+	{
+		if (!query[i][0]||!query[i][1]||space[query[i][0]] > 0|| space[query[i][1]] > 0)
+			puts("-1");
+		else
+		{
+			int ans = lca(query[i][0],query[i][1]);
+			if (ans > 1000000000) puts("-1");
+			else printf("%d\n",ans);
+		}
+	}
+}
+
+int main()
+{
+	N = gi(); M = gi();
+	for (int i = 1;i <= N;++i) P[i].read();
+	for (int i = 1;i <= M;++i)
+	{
+		int u = gi(),v = gi(),h = gi();
+		if (P[u].x > P[v].x) swap(u,v);
+		nins(u,v,h);
+	}
+	find_surface();
+	mst();
+	locate();
+	work();
+	return 0;
 }

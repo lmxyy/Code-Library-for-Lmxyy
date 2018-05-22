@@ -1,12 +1,14 @@
 // Gym - 100443J
+// SPOJ - CIRUT
 // modified
 const double eps = 1e-7,pi = acos(-1.0);
 int N,M; double area[maxn]; // area[k] -> area of intersections >= k.
 
 inline int dcmp(double a)
 {
-	if (-eps <= a&&a <= eps) return 0;
-	else if (a > 0) return 1; else return -1;
+	if (a > eps) return 1;
+	else if (a  < -eps) return -1;
+	else return 0;
 }
 
 struct Point
@@ -29,7 +31,7 @@ struct Circle
 {
 	Point C; double r; int sgn;
 	inline Circle() = default;
-	inline Circle(const Point &_C,double _r,int _sgn):C(_C),r(_r),sgn(_sgn) {} // sgn代表该圆的权值，默认1 
+	inline Circle(const Point &_C,double _r,int _sgn = 1):C(_C),r(_r),sgn(_sgn) {} // sgn代表该圆的权值，默认1 
 	friend inline bool operator==(const Circle &a,const Circle &b)
 	{
 		if (dcmp(a.r-b.r)) return false;
@@ -107,7 +109,7 @@ inline void solve()
 	}
 }
 
-// origin
+// origin - can get the centroid
 struct Event {
 	Point p;
 	double ang;
