@@ -1,3 +1,4 @@
+// HDU - 2121
 struct Directed_MT
 {
 	struct Edge

@@ -1,49 +1,24 @@
-// The First Version
-struct Vir
-{
-	double re,im;
-	inline Vir(double _re = 0,double _im = 0):re(_re),im(_im) {}
-	friend inline Vir operator*(const Vir &a,const Vir &b) { return Vir(a.re*b.re-a.im*b.im,a.re*b.im+a.im*b.re); }
-	friend inline Vir operator+(const Vir &a,const Vir &b) { return Vir(a.re+b.re,a.im+b.im); }
-	friend inline Vir operator-(const Vir &a,const Vir &b) { return Vir(a.re-b.re,a.im-b.im); }
-	friend inline Vir operator/(const Vir &a,double r) { return Vir(a.re/r,a.im/r); }
-}pa[maxn],pb[maxn];
+// UOJ - 34
+#include<cmath>
+#include<algorithm>
+#include<cstring>
+#include<iostream>
+#include<cstdio>
+#include<cstdlib>
+using namespace std;
 
-inline void fft(Vir *a,int loglen,int len,int on)
-{
-	for (register int i = 0,j,t,p;i < len;++i)
-	{
-		for (p = j = 0,t = i;j < loglen;++j,t >>= 1)
-			p <<= 1,p |= (t&1);
-		if (p > i) swap(a[p],a[i]);
-	}
-	for (register int m = 2,s = 1;s <= loglen;++s,m <<= 1)
-	{
-		register Vir w(cos(2*pi*on/m),sin(2*pi*on/m));
-		for (int i = 0;i < len;i += m)
-		{
-			register Vir wn(1,0);
-			for (register int j = 0;j < (m>>1);++j,wn = wn*w)
-			{
-				register Vir u = a[i+j],v = wn*a[i+j+(m>>1)];
-				a[i+j] = u+v; a[i+j+(m>>1)] = u-v;
-			}
-		}
-	}
-	if (on == -1) for (int i = 0;i < len;++i) a[i] = a[i]/len;
-}
-
-inline void work()
-{
-	int loglen = 0,len;
-	while ((1<<loglen) < l) ++loglen; len = 1 << loglen;
-	fft(pa,loglen,len,1); fft(pb,loglen,len,1);
-	for (int i = 0;i < len;++i) pa[i] = pa[i]*pb[i];
-	fft(pa,loglen,len,-1);
-}
-
-//The Second Version
 const double pi = acos(-1.0);
+const int maxn = 100010;
+int N,M;
+
+inline int gi()
+{
+	char ch; int ret = 0,f = 1;
+	do ch = getchar(); while (!(ch >= '0'&&ch <= '9')&&ch != '-');
+	if (ch == '-') f = -1,ch = getchar();
+	do ret = ret*10+ch-'0',ch = getchar(); while (ch >= '0'&&ch <= '9');
+	return ret*f;
+}
 struct Complex
 {
 	double re,im;
@@ -95,7 +70,7 @@ struct Polynomial
 	}
 	inline void cut(int key) { len = key; }
 	inline void transform(int loglen,int on) { FFT(array,loglen,1<<loglen,on); }
-}; //变量只能定义在全局，不然会re
+}Pa,Pb,res;
 
 inline Polynomial multiply(Polynomial &pa,Polynomial &ret) // self-multiply
 {
@@ -103,7 +78,7 @@ inline Polynomial multiply(Polynomial &pa,Polynomial &ret) // self-multiply
 	while ((1<<loglen) < (pa.len<<1)-1) ++loglen;
 	pa.extend(1<<loglen); pa.transform(loglen,1);
 	for (int i = 0;i < (1<<loglen);++i) ret[i] = pa[i]*pa[i];
-	ret.transform(loglen,-1); ret.cut((pa.len<<1)-1);
+ret.transform(loglen,-1); ret.cut((pa.len<<1)-1);
 	return ret;
 }
 inline Polynomial multiply(Polynomial &pa,Polynomial &pb,Polynomial &ret)
@@ -115,4 +90,16 @@ inline Polynomial multiply(Polynomial &pa,Polynomial &pb,Polynomial &ret)
 	for (int i = 0;i < (1<<loglen);++i) ret[i] = pa[i]*pb[i];
 	ret.transform(loglen,-1); ret.cut(pa.len+pb.len-1);
 	return ret;
+}
+
+int main()
+{
+	// freopen("34.in","r",stdin);
+	Pa.set(N = gi()+1); Pb.set(M = gi()+1);
+	for (int i = 0;i < N;++i) Pa[i] = Complex(gi(),0);
+	for (int i = 0;i < M;++i) Pb[i] = Complex(gi(),0);
+	multiply(Pa,Pb,res);
+	for (int i = 0;i < N+M-1;++i) printf("%d ",(int)round(res[i].re));
+	putchar('\n');
+	return 0;
 }

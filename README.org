@@ -1,26 +1,26 @@
-#+STARTUP: content
-#+TITLE: Code Library of Lmxyy
+#+AUTHOR: Lmxyy
+#+TITLE: Code Library for Lmxyy
 ** Task
-- Add my code templates to the corresponding file catalog under the catalog "source".
+- Add my code templates to the corresponding file directory under the directory [[file:Source][Source]].
 - Add the corresponding item in [[file:Template.tex][Template.tex]] in root directory, and then compile it twice with XeLateX.
 ** Authority
 + The author of templates is Lmxyy. Welcome to use my template. Using my templates, you can help me check the correctness of my templates. If you have any advice, please contact [[rmail:664789531@qq.com][664789531@qq.com]].
 ** Code-examination Project
 As Lmxyy has retired, he wants to leave something to his junior schoolmates, so he needs to do some examination in his templates. The GTD lists are following:
-*** TODO Algorithms [100%]
+*** DONE Algorithms [100%]
 - [X] 1D1D Dynamic Programming
 - [X] Dynamic Minimal Spanning Tree
 - [X] Plug-like Dynamic Programming
 - [X] Slop Optimization
 - [X] Three-dimension Partial Order
-*** TODO Computational Geometry [0%]
+*** TODO Computational Geometry [50%]
 - [-] Three-dimension [75%]
   - [ ] Common Formulas
   - [X] Convex Hull
   - [X] Minimal Ball Cover
   - [X] Volume of Tetrahedron
-- [-] Two-dimension [84%]
-  - [ ] Circle Intersection
+- [X] Two-dimension [100%]
+  - [X] Circle Intersection
   - [X] Common Formulas
   - [X] Convex Hull
   - [X] Cross Points of Circles
@@ -31,33 +31,33 @@ As Lmxyy has retired, he wants to leave something to his junior schoolmates, so 
   - [X] Intersection of Line and Convex Hull
   - [X] Minimal Circle Cover
   - [X] Minimal Product
-  - [ ] Planar Graph
+  - [X] Planar Graph
   - [X] Polygon Class
-*** TODO Data Structure [9%]
-- [ ] Divide and Conquer on Tree
+*** DONE Data Structure [100%]
+- [X] Divide and Conquer on Tree
 - [X] Dynamicly Divide and Conquer on Tree
-- [ ] Heavy Path Decomposition
-- [ ] K-dimension Tree
-- [ ] Leftlist Tree
-- [ ] Link Cut Tree
-- [ ] Merge Split Treap
-- [ ] Modui Algorithm on Tree
-- [ ] Modui Algorithm without Deletion
-- [ ] President Tree
-- [ ] Splay
-*** TODO Graph Theory [0%]
+- [X] Heavy Path Decomposition
+- [X] K-dimension Tree
+- [X] Leftlist Tree
+- [X] Link Cut Tree
+- [X] Merge Split Treap
+- [X] Modui Algorithm on Tree
+- [X] Modui Algorithm without Deletion
+- [X] President Tree
+- [X] Splay
+*** TODO Graph Theory [28%]
 - [ ] 2-Sat
 - [ ] Bridges and Cut Vertices
 - [ ] Cost Flow
 - [ ] Difference Constraints
-- [ ] Dinic Algorithm
-- [ ] Dominator Tree
+- [X] Dinic Algorithm
+- [X] Dominator Tree
 - [ ] Graph Isomorphism
 - [ ] Hungary Algorithm
 - [ ] Isap Algorithm
-- [ ] Kuhn-Munkres Algorithm
-- [ ] Maximal Matching in General Graphs
-- [ ] Maximal Weighted  Matching in General Graphs
+- [X] Kuhn-Munkres Algorithm
+- [X] Maximal Matching in General Graphs
+- [X] Maximal Weighted  Matching in General Graphs
 - [ ] Maximum Cardinality Search
 - [ ] Network Flow with Lower Bound
 - [ ] Point Biconnected Component
@@ -65,24 +65,24 @@ As Lmxyy has retired, he wants to leave something to his junior schoolmates, so 
 - [ ] Stoer Wagner Algorithm
 - [ ] Strongly Connected Component
 - [ ] Virtual Tree
-- [ ] Zhu-Liu Algorithm
+- [X] Zhu-Liu Algorithm
 - [ ] ZKW Cost Flow
-*** TODO Number Theory [0%]
+*** TODO Number Theory [10%]
 - [ ] Baby Step Giant Step
 - [ ] Chinese Remainder Theorem
 - [ ] Extended Euclidean Algorithm
 - [ ] Linearly Sieve
 - [ ] N-Power Residue
-- [ ] Number Theoretic Transformation
+- [X] Number Theoretic Transformation
 - [ ] Pollard Rho Algorithm
 - [ ] Primitive Root
 - [ ] Quadratic Residue
 - [ ] Single Variable Modulus Linear Equation
-*** TODO Numerical Algorithms [0%]
-- [ ] Counting Integral Points under Straight Line
-- [ ] Evaluation of Expression
-- [ ] Fast Fourier Transformation
-- [ ] Fast Input and Output
+*** TODO Numerical Algorithms [44%]
+- [X] Counting Integral Points under Straight Line
+- [X] Evaluation of Expression
+- [X] Fast Fourier Transformation
+- [X] Fast Input and Output
 - [ ] Fraction Class
 - [ ] Gray Code
 - [ ] Numerical Integration
@@ -107,4 +107,4 @@ As Lmxyy has retired, he wants to leave something to his junior schoolmates, so 
   - [ ] MathContext Class
   - [ ] RoundingMode Class
   - [ ] String Class
-
+    

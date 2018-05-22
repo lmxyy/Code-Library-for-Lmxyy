@@ -1,3 +1,4 @@
+// HDU - 4687
 // 接口int matching(),返回最大匹配数,G为邻接矩阵
 inline void push(int x)
 {

@@ -1,3 +1,5 @@
+// Complexity O(N^2)
+// Gym - 100463H
 #include<bitset>
 #include<stack>
 #include<iostream>

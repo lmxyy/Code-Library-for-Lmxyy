@@ -1,55 +1,23 @@
-// The First Version
-struct node
-{
-	int a[maxn*2],len;
-	inline void NTT(int loglen,int len,int on)
-	{
-		for (int i = 0,j,t,p;i < len;++i)
-		{
-			for (j = 0,t = i,p = 0;j < loglen;++j,t >>= 1)
-				p <<= 1,p |= t&1;
-			if (p > i) swap(a[p],a[i]);
-		}
-		for (int s = 1,k = 2;s <= loglen;++s,k <<= 1)
-		{
-			int wn; if (on) wn = e[s]; else wn = ine[s];
-			for (int i = 0;i < len;i += k)
-			{
-				int w = 1;
-				for (int j = 0;j < (k >> 1);++j,w = (ll)wn*w%rhl)
-				{
-					int u = a[i+j],v = (ll)w*a[i+j+(k>>1)]%rhl;
-					a[i+j] = u+v; if (a[i+j] >= rhl) a[i+j] -= rhl;
-					a[i+j+(k>>1)] = u-v;
-					if (a[i+j+(k>>1)] < 0) a[i+j+(k>>1)] += rhl;
-				}
-			}
-		}
-		if (!on)
-		{
-			int inv = qsm(len,rhl-2,rhl);
-			for (int i = 0;i < len;++i) a[i] = (ll)a[i]*inv%rhl;
-		}
-	}
-	friend inline bool operator *(node x,node y)
-	{
-		int loglen = 0,len;
-		for (;(1<<loglen)<x.len+y.len;++loglen); len = 1<<loglen;
-		x.NTT(loglen,len,1); y.NTT(loglen,len,1);
-		for (int i = 0;i < (1<<loglen);++i) x.a[i] = (ll)x.a[i]*y.a[i]%rhl;
-		x.NTT(loglen,len,0);
-	}
-};
+// UOJ - 34
+#include<algorithm>
+#include<cstring>
+#include<iostream>
+#include<cstdio>
+#include<cstdlib>
+using namespace std;
 
-int main()
-{
-	for (int i = 1;i < 20;++i)
-		e[i] = qsm(gg,(rhl-1)>>i,rhl),ine[i] = qsm(e[i],rhl-2,rhl);
-}
-
-// The Second Version
 typedef long long ll;
-ll e[20],ine[20];
+const int lhh = 1012924417,g = 5,maxn = 100010;
+ll e[20],ine[20]; int N,M;
+
+inline int gi()
+{
+	char ch; int ret = 0,f = 1;
+	do ch = getchar(); while (!(ch >= '0'&&ch <= '9')&&ch != '-');
+	if (ch == '-') f = -1,ch = getchar();
+	do ret = ret*10+ch-'0',ch = getchar(); while (ch >= '0'&&ch <= '9');
+	return ret*f;
+}
 
 inline ll qsm(ll a,int b,int c)
 {
@@ -62,8 +30,7 @@ inline void NTT(ll *a,int loglen,int len,int on)
 {
 	for (int i = 0,j,t,p;i < len;++i)
 	{
-		for (j = 0,t = i,p = 0;j < loglen;++j,t >>= 1)
-			p <<= 1,p |= t&1;
+		for (j = 0,t = i,p = 0;j < loglen;++j,t >>= 1) p <<= 1,p |= t&1;
 		if (p > i) swap(a[p],a[i]);
 	}
 	for (int s = 1,k = 2;s <= loglen;++s,k <<= 1)
@@ -104,7 +71,7 @@ struct Polynomial
 	}
 	inline void cut(int key) { len = key; }
 	inline void transform(int loglen,int on) { NTT(array,loglen,1<<loglen,on); }
-}; //变量只能定义在全局，不然会re
+}Pa,Pb,res; //变量只能定义在全局，不然会re
 
 inline Polynomial multiply(Polynomial &pa,Polynomial &ret) // self-multiply
 {
@@ -128,6 +95,14 @@ inline Polynomial multiply(Polynomial &pa,Polynomial &pb,Polynomial &ret)
 
 int main()
 {
+	// freopen("34.in","r",stdin);
 	for (int i = 1;i < 20;++i)
 		e[i] = qsm(g,(lhh-1)>>i,lhh),ine[i] = qsm(e[i],lhh-2,lhh);
+	Pa.set(N = gi()+1); Pb.set(M = gi()+1);
+	for (int i = 0;i < N;++i) Pa[i] = gi();
+	for (int i = 0;i < M;++i) Pb[i] = gi();
+	multiply(Pa,Pb,res);
+	for (int i = 0;i < N+M-1;++i) printf("%lld ",res[i]);
+	putchar('\n');
+	return 0;
 }
