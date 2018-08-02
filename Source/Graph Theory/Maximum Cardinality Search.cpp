@@ -1,72 +1,71 @@
 // BZOJ 1006
-#include<algorithm>
-#include<queue>
 #include<cstdio>
 #include<cstdlib>
-#include<set>
+#include<iostream>
+#include<queue>
 using namespace std;
 
-#define maxn 10010
-#define maxc 510
-#define maxm 1000010
-int tot,n,m,cnt,color[maxn][maxc],label[maxn],all;
-int side[maxn],next[maxm*2],toit[maxm*2],per[maxn];
-bool in[maxn];
-struct node
+const int maxn = 100010,maxm = 2000010,maxc = 510;
+int N,M;
+int side[maxn],toit[maxm],nxt[maxm],cnt = 1;
+int seq[maxn],label[maxn],color[maxn];
+bool vis[maxn],exist[maxc];
+
+inline void add(int a,int b) { nxt[++cnt] = side[a]; side[a] = cnt; toit[cnt] = b; }
+inline void ins(int a,int b) { add(a,b); add(b,a); }
+
+struct Node
 {
-	int key,ord;
-	friend bool operator < (node a,node b) {return a.key > b.key; }
+    int key,id;
+    inline Node() = default;
+    inline Node(int _key,int _id):key(_key),id(_id) {}
+    friend inline bool operator <(const Node &a,const Node &b) { return a.key < b.key; }
 };
-multiset <node> S;
 
-inline void add(int a,int b)
+void mcs()
 {
-	next[++cnt] = side[a]; side[a] = cnt; toit[cnt] = b; 
+    priority_queue <Node> heap;
+    for (int i = 1;i <= N;++i) heap.push(Node(0,i));
+    int all = 0;
+    while (all < N)
+    {
+	int now = heap.top().id; heap.pop();
+	if (vis[now]) continue;
+	seq[++all] = now; vis[now] = true;
+	for (int i = side[now];i;i = nxt[i])
+	    if (!vis[toit[i]])
+		heap.push(Node(++label[toit[i]],toit[i]));
+    }
 }
 
-inline void ins(int a,int b){add(a,b); add(b,a);}
-
-inline void mcs()
+int work()
 {
-	int i,u;
-	for (i = 1;i <= n;++i) S.insert((node){0,i});
-	while (all < n)
-	{
-		u = (*S.begin()).ord; S.erase(S.begin()); if (in[u]) continue;
-		in[u] = true; per[++all] = u;
-		for (i = side[u];i;i = next[i])
-			if (!in[toit[i]])
-			{
-				label[toit[i]]++;
-				S.insert((node){label[toit[i]],toit[i]});
-			}
-	}
-}
-
-inline void paint()
-{
-	int p,i,j,t;
-	for (p = 1;p <= n;++p)
-	{
-		i = per[p];
-		for (j = 1;j <= tot;++j)
-			if (!color[i][j]) {t = j; break; }
-		if (j == tot + 1) t = ++tot;
-		for (j = side[i];j;j = next[j])
-			color[toit[j]][t] = true;
-	}
+    mcs();
+    int ret = 0;
+    for (int i = 1;i <= N;++i)
+    {
+	int now = seq[i];
+	for (int j = 1;j <= ret;++j) exist[j] = false;
+	for (int j = side[now];j;j = nxt[j])
+	    if (color[toit[j]] != 0)
+		exist[color[toit[j]]] = true;
+	int c = 1;
+	for (;c <= ret&&exist[c];++c);
+	if (c > ret) ret = c;
+	color[now] = c;
+    }
+    return ret;
 }
 
 int main()
 {
-	freopen("1006.in","r",stdin);
-	freopen("1006.out","w",stdout);
-	scanf("%d %d",&n,&m);
-	for (int i = 1;i <= m;++i)
-	{ int a,b; scanf("%d %d",&a,&b); ins(a,b); }
-	mcs();
-	paint();
-	printf("%d",tot);
-	fclose(stdin); fclose(stdout);
-	return 0;
+    scanf("%d %d",&N,&M);
+    for (int i = 1;i <= M;++i)
+    {
+	int a,b; 
+	scanf("%d %d",&a,&b);
+	ins(a,b);
+    }
+    printf("%d\n",work());
+    return 0;
 }
